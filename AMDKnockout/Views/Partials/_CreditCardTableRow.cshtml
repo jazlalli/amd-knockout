@@ -1,0 +1,41 @@
+﻿<tr>
+    <td style="min-width: 200px; max-width: 200px;">
+        <p><small><b data-bind="text: Name"></b></small></p>
+        <img data-bind="attr:{src:ImageUrl, alt:Name}" width="109" />
+    </td>
+    <td style="min-width: 130px; max-width: 130px;" data-bind="visible: $parent.BalanceTransfer">
+        <p data-bind="text: BalanceTransferText"></p>
+    </td>
+    <td style="min-width: 80px; max-width: 80px;" data-bind="visible: $parent.BalanceTransferFee">
+        <p data-bind="text: IntroBalanceTfrFee + '% fee'"></p>
+    </td>
+    <td style="min-width: 110px; min-width: 110px;" data-bind="visible: $parent.Purchase">
+        <p data-bind="text: PurchasesText"></p>
+    </td>
+    <td style="min-width: 220px; min-width: 20px;" data-bind="visible: $parent.OfferDetails">
+        <ul data-bind="foreach: BulletsPositive">
+            <li><small data-bind="text: $data"></small></li>
+        </ul>
+    </td>
+    <td style="text-align: center;" data-bind="visible: $parent.Savings">
+        <p><b data-bind="text: SavingAmount() > 0 ? '£' + SavingAmount() : '--'"></b></p>
+    </td>
+    <td style="text-align: center;" data-bind="visible: $parent.Eligibility">
+        <p><b data-bind="text: Score() > 0 ? Score() : '?'"></b></p>
+    </td>
+    <td style="text-align: center;" data-bind="visible: $parent.Apr">
+        <p><b data-bind="text: RepresentativeAPR + '%'"></b></p>
+    </td>
+    <td style="padding-top: 45px;">
+        <a class="btn btn-warning">Apply Now</a>
+    </td>
+</tr>
+<tr>
+    <td colspan="8">
+        <small>
+            <b>Representative Example: </b>If you spend &#163;<span data-bind="text: RepresentativeExampleCreditLimit"></span> at a purchase interest rate of
+            <span data-bind="text: RepresentativeAPR"></span>% (variable) your Representative APR will be <span data-bind="text: BalanceTransferAER"></span>% (variable)
+            @*<span data-bind="visible: AnnualFee() > 0">with an annual fee of &#163;<span data-bind="text: AnnualFee"></span></span>.*@
+        </small>
+    </td>
+</tr>

@@ -1,0 +1,62 @@
+﻿@model AMDKnockout.Models.ResponseData
+
+@{
+    ViewBag.Title = "Credit Cards";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="@Url.Content("~/Public/styles/cardstable.css")"/>
+
+<div class="container">
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>Your results</h2>
+        </div>
+    </div>
+    <div id="results" class="row-fluid" style="visibility: hidden;">
+        <div class="span3" style="margin-top: 35px;">
+            @Html.Partial(Url.Content("~/Views/Partials/_CategoryMenu.cshtml"))
+            @Html.Partial(Url.Content("~/Views/Partials/_Calculator.cshtml"))
+        </div>
+        <div class="span9">
+            <table id="cardstable" class="table table-hover">
+                <thead>
+                    <tr class="table-row">
+                        <th class="col-large"></th>
+                        <th class="col-medium" data-bind="visible: BalanceTransfer, click: sortByBalanceTransfer">
+                            <a href="#">Balance Transfers</a>
+                        </th>
+                        <th class="col-small" data-bind="visible: BalanceTransferFee, click: sortByBalanceTransferFee">
+                            <a href="#">Transfer Fee</a>
+                        </th>
+                        <th class="col-medium" data-bind="visible: Purchase, click: sortByPurchase">
+                            <a href="#">Purchases</a>
+                        </th>
+                        <th class="col-large" data-bind="visible: OfferDetails">
+                            <a href="#">Offer Details</a>
+                        </th>
+                        <th class="col-small" data-bind="visible: Savings, click: sortBySavings">
+                            <a href="#">Savings</a>
+                        </th>
+                        <th class="col-small" data-bind="visible: Eligibility, click: sortByEligibility">
+                            <a href="#">Eligibility</a>
+                        </th>
+                        <th class="col-small" data-bind="visible: Apr, click: sortByApr">
+                            <a href="#">APR</a>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="creditcards" data-bind="foreach: CardsViewModel.filteredCards">
+                    @Html.Partial(Url.Content("~/Views/Partials/_CreditCardTableRow.cshtml"))
+                </tbody>
+            </table>
+            <div style="text-align: center; margin: 10px 0;" data-bind="visible: showMore()">
+                <a class="btn btn-inverse">Show More Cards</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    window.ResponseData = @Html.Raw(Model.Data)
+</script>

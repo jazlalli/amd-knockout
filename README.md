@@ -1,4 +1,2 @@
-TotallyMoney.CreditCards
-========================
-
-TotallyMoney.CreditCards
+amd-knockout
+============

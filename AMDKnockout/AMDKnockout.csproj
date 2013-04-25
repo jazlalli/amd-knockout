@@ -119,9 +119,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Public\script\app.js" />
+    <Content Include="Public\script\controllers\baseController.js" />
     <Content Include="Public\script\data\categoriesRepository.js" />
     <Content Include="Public\script\data\savingsRepository.js" />
-    <Content Include="Public\script\extensions\extensions.js" />
+    <Content Include="Public\script\shared\extensions.js" />
     <Content Include="Public\script\main.js" />
     <Content Include="Public\script\models\productCategory.js" />
     <Content Include="Public\script\models\creditCard.js" />
@@ -131,6 +132,7 @@
     <Content Include="Public\script\vendor\bootstrap.js" />
     <Content Include="Public\script\vendor\postal.js" />
     <Content Include="Public\script\data\cardsRepository.js" />
+    <Content Include="Public\script\controllers\categoriesController.js" />
     <Content Include="Public\script\viewModels\baseViewModel.js" />
     <Content Include="Public\script\viewModels\calculatorViewModel.js" />
     <Content Include="Public\script\viewModels\categoriesViewModel.js" />
@@ -140,7 +142,7 @@
     <Content Include="Public\script\vendor\jquery.js" />
     <Content Include="Public\script\vendor\underscore.js" />
     <Content Include="Public\script\viewModels\cardsTableViewModel.js" />
-    <Content Include="Public\styles\site.css" />
+    <Content Include="Public\styles\cardstable.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

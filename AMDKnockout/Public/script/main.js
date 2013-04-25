@@ -30,7 +30,7 @@ define(function(require) {
             },
             {
                 name: "extensions",
-                location: "/Public/script/extensions",
+                location: "/Public/script/shared",
                 main: "extensions.js"
             },
             {

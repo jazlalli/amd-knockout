@@ -1,173 +1,132 @@
-﻿define(['jquery', 'ko', 'underscore', 'viewModels/baseViewModel', 'viewModels/cardsViewModel', 'shared/messageBus'],
-    function ($, ko, _, BaseViewModel, CardsViewModel, messageBus) {
+﻿define(['ko', 'underscore', 'viewModels/baseViewModel'],
+    function (ko, _, BaseViewModel) {
         var CardsTableViewModel = function () {
+            this.cards = [];
+            
             this.selectedCategory = null;
-
-            this.BalanceTransfer = false;
-            this.BalanceTransferFee = false;
-            this.Purchase = false;
-            this.OfferDetails = false;
-            this.Savings = false;
-            this.Eligibility = false;
-            this.Apr = false;
-
-            this.CardsViewModel = null;
-
+            this.sortBy = 'DisplayOrder';
+            this.sortByDirection = 'asc';
+            this.pageSize = 10;
+            this.currentPage = 1;
+           
             BaseViewModel.apply(this, arguments);
-        };
-
-        var setColumns = function () {
-            var self = this;
-
-            switch (self.selectedCategory()) {
-                case 'CreditCard':
-                case 'Combined':
-                    self.BalanceTransfer(true);
-                    self.BalanceTransferFee(false);
-                    self.Purchase(true);
-                    self.OfferDetails(false);
-                    self.Savings(false);
-                    self.Eligibility(true);
-                    self.Apr(false);
-                    break;
-                case 'BalanceTransfer':
-                    self.BalanceTransfer(true);
-                    self.BalanceTransferFee(true);
-                    self.Purchase(false);
-                    self.OfferDetails(false);
-                    self.Savings(true);
-                    self.Eligibility(true);
-                    self.Apr(false);
-                    break;
-                case 'Purchase':
-                    self.BalanceTransfer(false);
-                    self.BalanceTransferFee(false);
-                    self.Purchase(true);
-                    self.OfferDetails(false);
-                    self.Savings(true);
-                    self.Eligibility(true);
-                    self.Apr(false);
-                    break;
-                case 'Cashback':
-                case 'Rewards':
-                    self.BalanceTransfer(false);
-                    self.BalanceTransferFee(false);
-                    self.Purchase(false);
-                    self.OfferDetails(true);
-                    self.Savings(true);
-                    self.Eligibility(true);
-                    self.Apr(false);
-                    break;
-                case 'PoorCredit':
-                    self.BalanceTransfer(false);
-                    self.BalanceTransferFee(false);
-                    self.Purchase(false);
-                    self.OfferDetails(true);
-                    self.Savings(false);
-                    self.Eligibility(true);
-                    self.Apr(true);
-                    break;
-                default:
-                    break;
-            }
         };
 
         _.extend(CardsTableViewModel.prototype, BaseViewModel.prototype, {
             initialize: function (options) {
                 var self = this;
                 self.selectedCategory('CreditCard');
-                self.CardsViewModel = new CardsViewModel();
 
-                setColumns.call(self);
-
-                messageBus.data.subscribe('category.changed', function (category) {
-                    self.selectedCategory(category);
-                    setColumns.call(self);
-                });
-            },
-
-            sortByBalanceTransfer: function (data, e) {
-                var self = this;
-
-                if (self.BalanceTransfer()) {
-                    messageBus.data.publish({
-                        topic: 'sort',
-                        data: {
-                            sortByProperty: 'DurationofBalRateM',
-                            sortByDirection: 'desc'
-                        }
-                    });
-                }
-            },
-            
-            sortByBalanceTransferFee: function (data, e) {
-                var self = this;
+                self.BalanceTransfer = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'CreditCard':
+                        case 'Combined':
+                        case 'BalanceTransfer':
+                            return true;
+                        case 'Purchase':
+                        case 'Cashback':
+                        case 'Rewards':
+                        case 'PoorCredit':
+                            return false;
+                        default:
+                            return false;
+                    }
+                }, self);
                 
-                if (self.BalanceTransferFee()) {
-                    messageBus.data.publish({
-                        topic: 'sort',
-                        data: {
-                            sortByProperty: 'IntroBalanceTfrFee',
-                            sortByDirection: 'asc'
-                        }
-                    });
-                }
-            },
-            
-            sortByPurchase: function (data, e) {
-                var self = this;
+                self.BalanceTransferFee = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'BalanceTransfer':
+                            return true;
+                        case 'CreditCard':
+                        case 'Combined':
+                        case 'Purchase':
+                        case 'Cashback':
+                        case 'Rewards':
+                        case 'PoorCredit':
+                            return false;
+                        default:
+                            return false;
+                    }
+                }, self);
                 
-                if (self.Purchase()) {
-                    messageBus.data.publish({
-                        topic: 'sort',
-                        data: {
-                            sortByProperty: 'DurationofPurchRateM',
-                            sortByDirection: 'desc'
-                        }
-                    });
-                }
-            },
-            
-            sortBySavings: function (data, e) {
-                var self = this;
+                self.Purchase = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'CreditCard':
+                        case 'Combined':
+                        case 'Purchase':
+                            return true;
+                        case 'BalanceTransfer':
+                        case 'Cashback':
+                        case 'Rewards':
+                        case 'PoorCredit':
+                            return false;
+                        default:
+                            return false;
+                    }
+                }, self);
                 
-                if (self.Savings()) {
-                    messageBus.data.publish({
-                        topic: 'sort',
-                        data: {
-                            sortByProperty: 'SavingAmount',
-                            sortByDirection: 'desc'
-                        }
-                    });
-                }
-            },
-            
-            sortByEligibility: function (data, e) {
-                var self = this;
+                self.OfferDetails = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'Cashback':
+                        case 'Rewards':
+                        case 'PoorCredit':
+                            return true;
+                        case 'CreditCard':
+                        case 'Combined':
+                        case 'Purchase':
+                        case 'BalanceTransfer':
+                            return false;
+                        default:
+                            return false;
+                    }
+                }, self);
                 
-                if (self.Eligibility()) {
-                    messageBus.data.publish({
-                        topic: 'sort',
-                        data: {
-                            sortByProperty: 'Score',
-                            sortByDirection: 'desc'
-                        }
-                    });
-                }
-            },
-            
-            sortByApr: function (data, e) {
-                var self = this;
+                self.Savings = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'BalanceTransfer':
+                        case 'Purchase':
+                        case 'Cashback':
+                        case 'Rewards':
+                            return true;
+                        case 'CreditCard':
+                        case 'Combined':
+                        case 'PoorCredit':
+                            return false;
+                        default:
+                            return false;
+                    }
+                }, self);
                 
-                if (self.Apr()) {
-                    messageBus.data.publish({
-                        topic: 'sort',
-                        data: {
-                            sortByProperty: 'RepresentativeAPR',
-                            sortByDirection: 'asc'
-                        }
-                    });
-                }
+                self.Eligibility = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'BalanceTransfer':
+                        case 'Purchase':
+                        case 'Cashback':
+                        case 'Rewards':
+                        case 'CreditCard':
+                        case 'Combined':
+                        case 'PoorCredit':
+                            return true;
+                        default:
+                            return false;
+                    }
+                }, self);
+                
+                self.Apr = ko.computed(function () {
+                    switch (self.selectedCategory()) {
+                        case 'PoorCredit':
+                            return true;
+                        case 'BalanceTransfer':
+                        case 'Purchase':
+                        case 'Cashback':
+                        case 'Rewards':
+                        case 'CreditCard':
+                        case 'Combined':
+                            return false;
+                        default:
+                            return false;
+                    }
+                }, self);
             }
         });
 

@@ -26,22 +26,6 @@
                     }
                 });
             }
-        },
-        
-        forceGet: function (key, data, callback) {
-            $.ajax({
-                url: key,
-                data: data,
-                type: 'GET',
-                dataType: 'json',
-                success: function (response) {
-                    localStorage.setItem(key, JSON.stringify(response));
-                    callback(response);
-                },
-                error: function (e) {
-                    console.log(e);
-                }
-            });
         }
     };
 });

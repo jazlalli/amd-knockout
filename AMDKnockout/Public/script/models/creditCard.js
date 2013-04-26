@@ -13,6 +13,7 @@ define(["ko", "underscore", "viewModels/baseViewModel"], function (ko, _, BaseVi
         this.Cons = null;
         this.Features = null;
         this.IntroBalanceTransferRate = null;
+        this.IntroBalanceTfrFee = null;
         this.IntroPurchaseRate = null;
         this.MinAge = null;
         this.MinIncome = null;

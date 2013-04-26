@@ -1,8 +1,7 @@
 ﻿define(['ko',
         'underscore',
-        'viewModels/baseViewModel',
-        'controllers/categoriesController'],
-    function (ko, _, BaseViewModel, CategoriesController) {
+        'viewModels/baseViewModel'],
+    function (ko, _, BaseViewModel) {
         'use strict';
 
         var CategoriesViewModel = function () {
@@ -10,14 +9,8 @@
             BaseViewModel.apply(this, arguments);
         };
 
-        _.extend(CategoriesViewModel.prototype, BaseViewModel.prototype, CategoriesController.prototype, {
+        _.extend(CategoriesViewModel.prototype, BaseViewModel.prototype, {
             initialize: function () {
-                var self = this;
-
-                var controller = new CategoriesController();
-                var data = controller.buildModel();
-                
-                self.categories(data);
             }
         });
 

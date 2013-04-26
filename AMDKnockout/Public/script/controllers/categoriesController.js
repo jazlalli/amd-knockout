@@ -1,33 +1,38 @@
 ﻿define(['ko',
         'underscore',
-        'controllers/baseController',
-        'models/productCategory',
         'data/categoriesRepository',
+        'models/productCategory',
+        'viewModels/categoriesViewModel',
         'shared/messageBus'],
-    function(ko, _, BaseController, ProductCategory, categoriesRepository, messageBus) {
+    function (ko, _, categoriesRepository, ProductCategory, CategoriesViewModel, messageBus) {
 
         var CategoriesController = function() {
-            BaseController.apply(this, arguments);
+            var self = this;
+            self.initialize.call(self);
         };
 
-        _.extend(CategoriesController.prototype, BaseController.prototype, {
-            initialize: function() {
-            },
+        _.extend(CategoriesController.prototype, {
+            initialize: function () {
+                var self = this;
+                
+                self.viewModel = new CategoriesViewModel();
 
-            buildModel: function() {
+                var model = self.buildCategoriesModel();
+                self.viewModel.categories(model);
+            },
+            
+            buildCategoriesModel: function () {
                 var model = [],
                     categories = categoriesRepository.getCategories();
 
-                _.each(categories, function(category) {
+                _.each(categories, function (category) {
                     model.push(new ProductCategory(category));
                 }, this);
 
                 return model;
             },
-            
+
             setSelectedCategory: function (category) {
-                console.log('category change handler in controller');
-                
                 messageBus.data.publish({
                     topic: 'category.changed',
                     data: category.Name()
@@ -36,4 +41,4 @@
         });
 
         return CategoriesController;
-    });
+    }); 

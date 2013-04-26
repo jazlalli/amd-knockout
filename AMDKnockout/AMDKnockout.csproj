@@ -119,9 +119,10 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Public\script\app.js" />
-    <Content Include="Public\script\controllers\baseController.js" />
+    <Content Include="Public\script\controllers\calculatorController.js" />
+    <Content Include="Public\script\controllers\cardsTableController.js" />
     <Content Include="Public\script\data\categoriesRepository.js" />
-    <Content Include="Public\script\data\savingsRepository.js" />
+    <Content Include="Public\script\data\calculatorRepository.js" />
     <Content Include="Public\script\shared\extensions.js" />
     <Content Include="Public\script\main.js" />
     <Content Include="Public\script\models\productCategory.js" />
@@ -136,7 +137,6 @@
     <Content Include="Public\script\viewModels\baseViewModel.js" />
     <Content Include="Public\script\viewModels\calculatorViewModel.js" />
     <Content Include="Public\script\viewModels\categoriesViewModel.js" />
-    <Content Include="Public\script\viewModels\cardsViewModel.js" />
     <Content Include="Public\script\require-jquery.js" />
     <Content Include="Public\script\vendor\knockout.js" />
     <Content Include="Public\script\vendor\jquery.js" />
@@ -169,7 +169,7 @@
     <Content Include="Data\Cards.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\_Calculator.cshtml" />
+    <Content Include="Views\Partials\_Calculators.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\CashbackSavings.json" />

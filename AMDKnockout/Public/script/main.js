@@ -53,6 +53,7 @@ define(function(require) {
     });
 
     require(['app', 'extensions'], function (App) {
-
+        window.App = new App();
+        window.App.bootstrap();
     });
 });

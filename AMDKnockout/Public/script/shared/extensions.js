@@ -1,42 +1,29 @@
 define(['ko', 'underscore'], function (ko, _) {
-    ko.observableArray.fn.sortByProperty = function (prop, direction) {
 
-        if (!direction) {
-            direction = 'asc';
+    _.extend(Array.prototype, {
+        sortByProperty: function(property, direction) {
+            this.sort(function(obj1, obj2) {
+                var val1 = obj1[property],
+                    val2 = obj2[property];
+                
+                if (direction === 'desc') {
+                    if (val1 == val2)
+                        return 0;
+                    else if (val1 < val2)
+                        return 1;
+                    else
+                        return -1;
+                } else {
+                    if (val1 == val2)
+                        return 0;
+                    else if (val1 < val2)
+                        return -1;
+                    else
+                        return 1;
+                }
+            });
         }
-
-        this.sort(function (obj1, obj2) {
-            var val1, val2;
-
-            if (_.isFunction(obj1[prop])) {
-                val1 = obj1[prop]();
-            } else {
-                val1 = obj1[prop];
-            }
-
-            if (_.isFunction(obj2[prop])) {
-                val2 = obj2[prop]();
-            } else {
-                val2 = obj2[prop];
-            }
-
-            if (direction === 'desc') {
-                if (val1 == val2)
-                    return 0;
-                else if (val1 < val2)
-                    return 1;
-                else
-                    return -1;
-            } else {
-                if (val1 == val2)
-                    return 0;
-                else if (val1 < val2)
-                    return -1;
-                else
-                    return 1;
-            }
-        });
-    };
+    });
     
     ko.pauseableComputed = function (evaluatorFunction, evaluatorFunctionTarget) {
         var _cachedValue = '';

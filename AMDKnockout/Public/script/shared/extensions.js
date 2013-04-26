@@ -1,5 +1,4 @@
-define(['ko', 'underscore'], function (ko, _) {
-
+define(['underscore'], function (_) {
     _.extend(Array.prototype, {
         sortByProperty: function(property, direction) {
             this.sort(function(obj1, obj2) {

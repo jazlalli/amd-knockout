@@ -169,7 +169,7 @@
     <Content Include="Data\Cards.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\_Calculators.cshtml" />
+    <Content Include="Views\Partials\Calculators\_BalanceTransferCalculator.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\CashbackSavings.json" />
@@ -188,6 +188,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\_CreditCardTableRow.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Calculators\_PurchaseCalculator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Calculators\_CashbackCalculator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Calculators\_RewardsCalculator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\_Calculators.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

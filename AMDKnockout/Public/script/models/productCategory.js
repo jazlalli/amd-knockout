@@ -1,4 +1,4 @@
-define(["ko", "underscore", "viewModels/baseViewModel"], function (ko, _, BaseViewModel) {
+define(["knockout", "underscore", "viewModels/baseViewModel"], function (ko, _, BaseViewModel) {
     var ProductCategory = function (options) {
         this.Name = null;
         this.Text = null;

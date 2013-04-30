@@ -119,29 +119,35 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="Public\script\app.js" />
-    <Content Include="Public\script\controllers\calculatorController.js" />
-    <Content Include="Public\script\controllers\cardsTableController.js" />
+    <Content Include="Public\script\controllers\CalculatorController.js" />
+    <Content Include="Public\script\controllers\TableController.js" />
+    <Content Include="Public\script\controllers\BalanceTransferController.js" />
+    <Content Include="Public\script\controllers\PurchaseController.js" />
+    <Content Include="Public\script\controllers\IndexController.js" />
     <Content Include="Public\script\data\categoriesRepository.js" />
-    <Content Include="Public\script\data\calculatorRepository.js" />
+    <Content Include="Public\script\data\savingsRepository.js" />
+    <Content Include="Public\script\router.js" />
     <Content Include="Public\script\shared\extensions.js" />
     <Content Include="Public\script\main.js" />
-    <Content Include="Public\script\models\productCategory.js" />
-    <Content Include="Public\script\models\creditCard.js" />
+    <Content Include="Public\script\models\ProductCategory.js" />
+    <Content Include="Public\script\models\CreditCard.js" />
     <Content Include="Public\script\shared\messageBus.js" />
     <Content Include="Public\script\shared\resourceManager.js" />
     <Content Include="Public\script\vendor\amplify.js" />
     <Content Include="Public\script\vendor\bootstrap.js" />
+    <Content Include="Public\script\vendor\jquery.history.js" />
+    <Content Include="Public\script\vendor\pager.js" />
     <Content Include="Public\script\vendor\postal.js" />
     <Content Include="Public\script\data\cardsRepository.js" />
-    <Content Include="Public\script\controllers\categoriesController.js" />
-    <Content Include="Public\script\viewModels\baseViewModel.js" />
-    <Content Include="Public\script\viewModels\calculatorViewModel.js" />
-    <Content Include="Public\script\viewModels\categoriesViewModel.js" />
+    <Content Include="Public\script\controllers\CategoryController.js" />
+    <Content Include="Public\script\viewModels\BaseViewModel.js" />
+    <Content Include="Public\script\viewModels\CalculatorViewModel.js" />
+    <Content Include="Public\script\viewModels\CategoriesViewModel.js" />
     <Content Include="Public\script\require-jquery.js" />
     <Content Include="Public\script\vendor\knockout.js" />
     <Content Include="Public\script\vendor\jquery.js" />
     <Content Include="Public\script\vendor\underscore.js" />
-    <Content Include="Public\script\viewModels\cardsTableViewModel.js" />
+    <Content Include="Public\script\viewModels\TableViewModel.js" />
     <Content Include="Public\styles\cardstable.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -155,6 +161,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Public\img\" />
+    <Folder Include="Public\views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -200,6 +207,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Partials\_Calculators.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Tables\_AllCards.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Tables\_Purchase.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Partials\Tables\_BalanceTransfer.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

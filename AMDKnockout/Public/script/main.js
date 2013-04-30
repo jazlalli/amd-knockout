@@ -2,6 +2,12 @@ define(function(require) {
     'use strict';
 
     requirejs.config({
+        shim: {
+            underscore: { exports: "_" },
+            bootstrap: { exports: "bootstrap" },
+            pager: { exports: "pager", deps: ["knockout", "underscore", "history"] },
+            history: { exports: "history", deps: ["jquery"] }
+        },
         packages: [
             {
                 name: "jquery",
@@ -9,7 +15,7 @@ define(function(require) {
                 main: "jquery.js"
             },
             {
-                name: "ko",
+                name: "knockout",
                 location: "/Public/script/vendor",
                 main: "knockout.js"
             },
@@ -29,6 +35,16 @@ define(function(require) {
                 main: "bootstrap.js"
             },
             {
+                name: "pager",
+                location: "/Public/script/vendor",
+                main: "pager.js"
+            },
+            {
+                name: "history",
+                location: "/Public/script/vendor",
+                main: 'jquery.history.js'
+            },
+            {
                 name: "extensions",
                 location: "/Public/script/shared",
                 main: "extensions.js"
@@ -38,18 +54,7 @@ define(function(require) {
                 location: "/Public/script",
                 main: "app.js"
             }
-        ],
-        shim: {
-            ko: {
-                exports: "ko"
-            },
-            underscore: {
-                exports: "_"
-            },
-            bootstrap: {
-                exports: "bootstrap"
-            }
-        }
+        ]
     });
 
     require(['app', 'extensions'], function (App) {

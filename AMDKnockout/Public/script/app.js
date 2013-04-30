@@ -1,10 +1,13 @@
 ﻿define(['jquery',
-        'ko',
-        'controllers/cardsTableController',
-        'controllers/categoriesController',
-        'controllers/calculatorController',
+        'underscore',
+        'knockout',
+        'pager',
+        'controllers/CategoryController',
+        'controllers/IndexController',
+        'controllers/BalanceTransferController',
+        'controllers/PurchaseController',
         'shared/messageBus'],
-    function ($, ko, CardsTableController, CategoriesController, CalculatorController, messageBus) {
+    function ($, _, ko, pager, CategoryController, IndexController, BalanceTransferController, PurchaseController, messageBus) {
 
         var App = function (options) {
             options = options || {};
@@ -15,23 +18,31 @@
             initialize: function () {
                 var self = this;
 
+                pager.useHTML5history = true;
+                pager.Href5.history = History;
+                
                 // TODO Wrap up controllers in page level controller
-                //define the controllers global namespace and attach appropriate controllers
-                self.Controller = self.Controller || {};
-                self.Controller.CardsTable = new CardsTableController();
-                self.Controller.Categories = new CategoriesController();
-                self.Controller.Calculator = new CalculatorController();
+                self.CategoryController = new CategoryController();
+                self.IndexController = new IndexController();
+                self.BalanceTransferController = new BalanceTransferController();
+                self.PurchaseController = new PurchaseController();
+                
+                pager.extendWithPage(self.CategoryController.viewModel);
+                pager.extendWithPage(self.IndexController.Table.viewModel);
+                pager.extendWithPage(self.BalanceTransferController.Table.viewModel);
+                pager.extendWithPage(self.PurchaseController.Table.viewModel);
             },
             
             bootstrap: function () {
                 var self = this;
-
-                // TODO Bind viewmodel using data attribute instead of hard-coded DOM selector
-                // binds viewmodel to DOM element
-                ko.applyBindings(self.Controller.Categories.viewModel, $('#categories')[0]);
-                ko.applyBindings(self.Controller.Calculator.viewModel, $('#calculators')[0]);
-                ko.applyBindings(self.Controller.CardsTable.viewModel, $('#cardstable')[0]);
                 
+                // TODO Bind viewmodel using data attribute instead of hard-coded DOM selector
+                ko.applyBindings(self.CategoryController.viewModel, $('#categories')[0]);
+                ko.applyBindings(self.IndexController.Table.viewModel, $('#all')[0]);
+                ko.applyBindings(self.BalanceTransferController.Table.viewModel, $('#bt')[0]);
+                ko.applyBindings(self.PurchaseController.Table.viewModel, $('#purchase')[0]);
+                
+                pager.startHistoryJs();
                 this.ready();
             },
             

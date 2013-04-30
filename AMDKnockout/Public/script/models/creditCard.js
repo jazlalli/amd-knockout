@@ -1,4 +1,4 @@
-define(["ko", "underscore", "viewModels/baseViewModel"], function (ko, _, BaseViewModel) {
+define(["knockout", "underscore", "viewModels/baseViewModel"], function (ko, _, BaseViewModel) {
     var CreditCard = function (options) {
         this.ProductId = 0;
         this.ProductCode = null;

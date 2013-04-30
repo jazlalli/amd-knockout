@@ -1,6 +1,6 @@
-﻿define(['ko',
+﻿define(['knockout',
         'underscore',
-        'viewModels/baseViewModel'],
+        'viewModels/BaseViewModel'],
     function (ko, _, BaseViewModel) {
         'use strict';
 

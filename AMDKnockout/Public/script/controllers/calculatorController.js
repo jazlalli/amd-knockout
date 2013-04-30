@@ -1,12 +1,9 @@
-﻿define(['ko',
+﻿define(['knockout',
         'underscore',
-        'data/calculatorRepository',
-        'viewModels/calculatorViewModel',
+        'viewModels/CalculatorViewModel',
         'shared/messageBus'],
-    function (ko, _, calculatorRepository, CalculatorViewModel, messageBus) {
+    function (ko, _, CalculatorViewModel, messageBus) {
 
-        var _calculatorParameters = {};
-        
         var CalculatorController = function () {
             var self = this;
             self.initialize.call(self);
@@ -18,22 +15,32 @@
 
                 self.viewModel = new CalculatorViewModel();
                 self.setupSubscriptions.call(self);
-                
-                _calculatorParameters = self.viewModel;
             },
 
-            updateCalculations: function (data, event) {
+            updateCalculations: function () {
+                var self = this,
+                    property,
+                    calculatorParameters = {};
+                
                 if (event) {
                     event.preventDefault();
                 }
 
-                if (data) {
-                    _calculatorParameters = data;
+                if (self.viewModel) {
+                    for (property in self.viewModel) {
+                        if (self.viewModel.hasOwnProperty(property)) {
+                            if (_.isFunction(self.viewModel[property])) {
+                                calculatorParameters[property] = self.viewModel[property]();
+                            } else {
+                                calculatorParameters[property] = self.viewModel[property];
+                            }
+                        }
+                    }
                 }
 
                 messageBus.data.publish({
                     topic: 'calculator.update',
-                    data: _calculatorParameters
+                    data: calculatorParameters
                 });
 
                 return false;
@@ -42,9 +49,9 @@
             setupSubscriptions: function () {
                 var self = this;
 
-                messageBus.data.subscribe('category.changed', function (data) {
-                    self.viewModel.selectedCategory(data);
-                    self.updateCalculations();
+                messageBus.data.subscribe('category.changed', function (category) {
+                    self.viewModel.selectedCategory(category);
+                    self.updateCalculations.call(self);
                 });
             }
         });

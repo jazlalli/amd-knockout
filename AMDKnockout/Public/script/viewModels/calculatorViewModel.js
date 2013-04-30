@@ -1,4 +1,4 @@
-﻿define(['ko', 'underscore', 'viewModels/BaseViewModel'],
+﻿define(['knockout', 'underscore', 'viewModels/BaseViewModel'],
     function (ko, _, BaseViewModel) {
         var CalculatorViewModel = function () {
             this.selectedCategory = 'CreditCard';

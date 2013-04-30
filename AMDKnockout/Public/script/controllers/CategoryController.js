@@ -1,24 +1,22 @@
-﻿define(['ko',
+﻿define(['knockout',
         'underscore',
         'data/categoriesRepository',
-        'models/productCategory',
-        'viewModels/categoriesViewModel',
+        'models/ProductCategory',
+        'viewModels/CategoriesViewModel',
         'shared/messageBus'],
     function (ko, _, categoriesRepository, ProductCategory, CategoriesViewModel, messageBus) {
 
-        var CategoriesController = function() {
+        var CategoryController = function() {
             var self = this;
             self.initialize.call(self);
         };
 
-        _.extend(CategoriesController.prototype, {
+        _.extend(CategoryController.prototype, {
             initialize: function () {
                 var self = this;
                 
                 self.viewModel = new CategoriesViewModel();
-
-                var model = self.buildCategoriesModel();
-                self.viewModel.categories(model);
+                self.viewModel.categories(self.buildCategoriesModel());
             },
             
             buildCategoriesModel: function () {
@@ -40,5 +38,5 @@
             }
         });
 
-        return CategoriesController;
+        return CategoryController;
     }); 

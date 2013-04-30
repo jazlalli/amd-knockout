@@ -1,4 +1,4 @@
-﻿define(['ko', 'underscore', 'viewModels/baseViewModel'],
+﻿define(['knockout', 'underscore', 'viewModels/BaseViewModel'],
     function (ko, _, BaseViewModel) {
         var CardsTableViewModel = function () {
             this.cards = [];

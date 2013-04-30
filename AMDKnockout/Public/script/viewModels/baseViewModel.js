@@ -1,4 +1,4 @@
-﻿define(['ko', 'underscore'], function (ko, _) {
+﻿define(['knockout', 'underscore'], function (ko, _) {
     var BaseViewModel = function(options) {
         this._setup(options);
         this.initialize.call(this, options);

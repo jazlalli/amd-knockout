@@ -1,4 +1,4 @@
-﻿<table id="purchase" class="table table-hover">
+﻿<table data-bind="page: {id: 'Purchase', with: purchase}" class="table table-hover">
     <thead>
         <tr class="table-row">
             <th class="col-large"></th>
@@ -14,7 +14,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody id="creditcards" data-bind="foreach: cards">
-        @Html.Partial(Url.Content("~/Views/Partials/_CreditCardTableRow.cshtml"))
+    <tbody data-bind="foreach: cards">
+        @Html.Partial(Url.Content("~/Views/Partials/Tables/Purchase/_TableRow.cshtml"))
     </tbody>
 </table>

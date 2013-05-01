@@ -1,4 +1,4 @@
-﻿<div id="purchaseCalculator" class="well" style="padding-bottom: 50px" data-bind="visible: selectedCategory() === 'Purchase'">
+﻿<div id="purchaseCalculator" class="well" style="padding-bottom: 50px" data-bind="page: {id: 'Purchase', with: purchase}">
     <h5>Monthly Spend:</h5>
     <div>
         <label for="monthlySpend" data-bind="text: '£' + monthlySpend()"></label>

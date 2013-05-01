@@ -3,52 +3,74 @@
         'knockout',
         'pager',
         'controllers/CategoryController',
-        'controllers/IndexController',
+        'controllers/AllCardsController',
         'controllers/BalanceTransferController',
         'controllers/PurchaseController',
+        'controllers/CashbackController',
+        'controllers/RewardsController',
+        'controllers/CombinedController',
+        'controllers/PoorCreditController',
         'shared/messageBus'],
-    function ($, _, ko, pager, CategoryController, IndexController, BalanceTransferController, PurchaseController, messageBus) {
+    function ($,
+        _,
+        ko,
+        pager,
+        CategoryController,
+        AllCardsController,
+        BalanceTransferController,
+        PurchaseController,
+        CashbackController,
+        RewardsController,
+        CombinedController,
+        PoorCreditController,
+        messageBus) {
 
-        var App = function (options) {
+        var App = function(options) {
             options = options || {};
             this.initialize();
         };
 
         _.extend(App.prototype, {
-            initialize: function () {
+            initialize: function() {
+                var self = this;
+
+                // TODO Wrap up controllers in page level controller
+                self.CategoryController = new CategoryController();
+                self.AllCardsController = new AllCardsController();
+                self.BalanceTransferController = new BalanceTransferController();
+                self.PurchaseController = new PurchaseController();
+                self.CashbackController = new CashbackController();
+                self.RewardsController = new RewardsController();
+                self.CombinedController = new CombinedController();
+                self.PoorCreditController = new PoorCreditController();
+
+                this.ready();
+            },
+
+            bootstrap: function() {
                 var self = this;
 
                 pager.useHTML5history = true;
                 pager.Href5.history = History;
-                
-                // TODO Wrap up controllers in page level controller
-                self.CategoryController = new CategoryController();
-                self.IndexController = new IndexController();
-                self.BalanceTransferController = new BalanceTransferController();
-                self.PurchaseController = new PurchaseController();
-                
-                pager.extendWithPage(self.CategoryController.viewModel);
-                pager.extendWithPage(self.IndexController.Table.viewModel);
-                pager.extendWithPage(self.BalanceTransferController.Table.viewModel);
-                pager.extendWithPage(self.PurchaseController.Table.viewModel);
-            },
-            
-            bootstrap: function () {
-                var self = this;
-                
-                // TODO Bind viewmodel using data attribute instead of hard-coded DOM selector
-                ko.applyBindings(self.CategoryController.viewModel, $('#categories')[0]);
-                ko.applyBindings(self.IndexController.Table.viewModel, $('#all')[0]);
-                ko.applyBindings(self.BalanceTransferController.Table.viewModel, $('#bt')[0]);
-                ko.applyBindings(self.PurchaseController.Table.viewModel, $('#purchase')[0]);
-                
+
+                var rootViewModel = {
+                    categories: self.CategoryController.viewModel,
+                    allcards: self.AllCardsController.Table.viewModel,
+                    balancetransfer: self.BalanceTransferController.Table.viewModel,
+                    purchase: self.PurchaseController.Table.viewModel,
+                    cashback: self.CashbackController.Table.viewModel,
+                    rewards: self.RewardsController.Table.viewModel,
+                    combined: self.CombinedController.Table.viewModel,
+                    poorcredit: self.PoorCreditController.Table.viewModel
+                };
+
+                pager.extendWithPage(rootViewModel);
+                ko.applyBindings(rootViewModel);
                 pager.startHistoryJs();
-                this.ready();
             },
-            
-            ready: function () {
+
+            ready: function() {
                 messageBus.app.publish('ready');
-                $('#results').css({ visibility: 'visible' });
             }
         });
 

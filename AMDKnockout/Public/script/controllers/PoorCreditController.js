@@ -1,10 +1,10 @@
 ﻿define(['pager', 'controllers/CategoryController', 'controllers/TableController'],
     function(pager, CategoryController, TableController) {
 
-        var BalanceTransferController = function() {
+        var PoorCreditController = function() {
             var self = this;
             self.Table = new TableController();
         };
 
-        return BalanceTransferController;
+        return PoorCreditController;
     });

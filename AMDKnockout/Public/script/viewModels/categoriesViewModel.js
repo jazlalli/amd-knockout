@@ -5,7 +5,7 @@
         'use strict';
 
         var CategoriesViewModel = function () {
-            this.categories = [];
+            this.category = [];
             BaseViewModel.apply(this, arguments);
         };
 

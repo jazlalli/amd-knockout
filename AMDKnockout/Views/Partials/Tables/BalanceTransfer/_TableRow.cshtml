@@ -3,28 +3,17 @@
         <p><small><b data-bind="text: Name"></b></small></p>
         <img data-bind="attr:{src:ImageUrl, alt:Name}" width="109" />
     </td>
-    <td style="min-width: 130px; max-width: 130px;" data-bind="visible: $parent.BalanceTransfer">
+    <td style="min-width: 130px; max-width: 130px;">
         <p data-bind="text: BalanceTransferText"></p>
     </td>
-    <td style="min-width: 80px; max-width: 80px;" data-bind="visible: $parent.BalanceTransferFee">
+    <td style="min-width: 80px; max-width: 80px;">
         <p data-bind="text: IntroBalanceTfrFee + '% fee'"></p>
     </td>
-    <td style="min-width: 110px; min-width: 110px;" data-bind="visible: $parent.Purchase">
-        <p data-bind="text: PurchasesText"></p>
-    </td>
-    <td style="min-width: 220px; min-width: 20px;" data-bind="visible: $parent.OfferDetails">
-        <ul data-bind="foreach: BulletsPositive">
-            <li><small data-bind="text: $data"></small></li>
-        </ul>
-    </td>
-    <td style="text-align: center;" data-bind="visible: $parent.Savings">
+    <td style="text-align: center;">
         <p><b data-bind="text: SavingAmount() > 0 ? '£' + SavingAmount() : '--'"></b></p>
     </td>
-    <td style="text-align: center;" data-bind="visible: $parent.Eligibility">
+    <td style="text-align: center;">
         <p><b data-bind="text: Score() > 0 ? Score() : '?'"></b></p>
-    </td>
-    <td style="text-align: center;" data-bind="visible: $parent.Apr">
-        <p><b data-bind="text: RepresentativeAPR + '%'"></b></p>
     </td>
     <td style="padding-top: 45px;">
         <a class="btn btn-warning">Apply Now</a>

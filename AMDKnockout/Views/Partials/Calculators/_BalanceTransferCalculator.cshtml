@@ -1,4 +1,4 @@
-﻿<div class="well" style="padding-bottom: 50px" data-bind="visible: selectedCategory() === 'BalanceTransfer'">
+﻿<div class="well" style="padding-bottom: 50px" data-bind="page: {id: 'BalanceTransfer', with: balancetransfer}">
     <h5>Balance to transfer:</h5>
     <div>
         <label for="balance" data-bind="text: '£' + balance()"></label>

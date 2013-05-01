@@ -1,0 +1,20 @@
+﻿<table data-bind="page: {id: 'Rewards', with: rewards}" class="table table-hover">
+    <thead>
+        <tr class="table-row">
+            <th class="col-large"></th>
+            <th class="col-medium">
+                <a href="#">Offer Details</a>
+            </th>
+            <th class="col-small" data-bind="click: App.RewardsController.Table.sortBySavings">
+                <a href="#">Savings</a>
+            </th>
+            <th class="col-small" data-bind="click: App.RewardsController.Table.sortByEligibility">
+                <a href="#">Eligibility</a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: cards">
+        @Html.Partial(Url.Content("~/Views/Partials/Tables/Rewards/_TableRow.cshtml"))
+    </tbody>
+</table>

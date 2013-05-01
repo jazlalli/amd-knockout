@@ -1,7 +1,7 @@
-﻿<div id="categories">
-    <ul class="nav nav-tabs nav-stacked" data-bind="foreach: categories">
+﻿<div id="categories" data-bind="with: categories">
+    <ul class="nav nav-tabs nav-stacked" data-bind="foreach: category">
         <li>
-            <a data-bind="text: Text, page-href5: Name"></a>
+            <a data-bind="text: Text, page-href: Name"></a>
         </li>
     </ul>
 </div>

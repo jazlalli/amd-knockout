@@ -16,7 +16,7 @@
                 var self = this;
                 
                 self.viewModel = new CategoriesViewModel();
-                self.viewModel.categories(self.buildCategoriesModel());
+                self.viewModel.category(self.buildCategoriesModel());
             },
             
             buildCategoriesModel: function () {

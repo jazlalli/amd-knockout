@@ -104,8 +104,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DataRepository.cs" />
     <Compile Include="Controllers\CardsController.cs" />
-    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\BalanceTransferController.cs" />
+    <Compile Include="Controllers\PurchaseController.cs" />
+    <Compile Include="Controllers\CashbackController.cs" />
+    <Compile Include="Controllers\RewardsController.cs" />
+    <Compile Include="Controllers\CombinedController.cs" />
+    <Compile Include="Controllers\PoorCreditController.cs" />
+    <Compile Include="Controllers\CreditCardController.cs" />
     <Compile Include="Controllers\SavingsCalculatorController.cs" />
     <Compile Include="Models\ResponseData.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,16 +178,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\CreditCard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Cards.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Calculators\_BalanceTransferCalculator.cshtml" />
+    <Content Include="Views\_Partials\BalanceTransfer\_Calculator.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\CashbackSavings.json" />
@@ -195,58 +202,76 @@
     <Content Include="Data\PurchaseSavings.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\_CategoryMenu.cshtml" />
+    <Content Include="Views\_Partials\_CategoryMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Calculators\_PurchaseCalculator.cshtml" />
+    <Content Include="Views\_Partials\Purchase\_Calculator.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Calculators\_CashbackCalculator.cshtml" />
+    <Content Include="Views\_Partials\Cashback\_Calculator.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Calculators\_RewardsCalculator.cshtml" />
+    <Content Include="Views\_Partials\Rewards\_Calculator.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\AllCards\_AllCards.cshtml" />
+    <Content Include="Views\_Partials\AllCards\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Purchase\_Purchase.cshtml" />
+    <Content Include="Views\_Partials\Purchase\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\BalanceTransfer\_BalanceTransfer.cshtml" />
+    <Content Include="Views\_Partials\BalanceTransfer\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Cashback\_Cashback.cshtml" />
+    <Content Include="Views\_Partials\Cashback\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Rewards\_Rewards.cshtml" />
+    <Content Include="Views\_Partials\Rewards\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Combined\_Combined.cshtml" />
+    <Content Include="Views\_Partials\Combined\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\PoorCredit\_PoorCredit.cshtml" />
+    <Content Include="Views\_Partials\PoorCredit\_Table.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\AllCards\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\AllCards\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\BalanceTransfer\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\BalanceTransfer\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Cashback\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\Cashback\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Combined\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\Combined\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\PoorCredit\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\PoorCredit\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Purchase\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\Purchase\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Partials\Tables\Rewards\_TableRow.cshtml" />
+    <Content Include="Views\_Partials\Rewards\_TableRow.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\BalanceTransfer\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Purchase\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cashback\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Rewards\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Combined\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PoorCredit\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

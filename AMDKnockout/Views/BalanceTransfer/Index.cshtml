@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<div id="results" class="row-fluid">
+    <div class="span3" style="margin-top: 35px;">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
+
+        @Html.Partial(Url.Content("~/Views/_Partials/BalanceTransfer/_Calculator.cshtml"))
+
+    </div>
+    <div class="span9">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/BalanceTransfer/_Table.cshtml"))
+
+    </div>
+</div>

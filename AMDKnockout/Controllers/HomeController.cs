@@ -4,7 +4,7 @@ using AMDKnockout.Helpers;
 
 namespace AMDKnockout.Controllers
 {
-    public class PurchaseController : Controller
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {

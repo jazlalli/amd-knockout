@@ -3,7 +3,9 @@
 
         var RewardsController = function() {
             var self = this;
-            self.Table = new TableController();
+            var options = { selectedCategory: 'Rewards' };
+
+            self.Table = new TableController(options);
         };
 
         return RewardsController;

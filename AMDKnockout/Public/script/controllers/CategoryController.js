@@ -6,26 +6,32 @@
         'shared/messageBus'],
     function (ko, _, categoriesRepository, ProductCategory, CategoriesViewModel, messageBus) {
 
-        var CategoryController = function() {
+        var CategoryController = function(category) {
             var self = this;
-            self.initialize.call(self);
+            self.initialize.call(self, category);
         };
 
         _.extend(CategoryController.prototype, {
-            initialize: function () {
+            initialize: function (category) {
                 var self = this;
                 
                 self.viewModel = new CategoriesViewModel();
-                self.viewModel.category(self.buildCategoriesModel());
+                self.viewModel.category(self.buildCategoriesModel(category));
             },
             
-            buildCategoriesModel: function () {
+            buildCategoriesModel: function (category) {
+                var self = this;
                 var model = [],
                     categories = categoriesRepository.getCategories();
 
-                _.each(categories, function (category) {
-                    model.push(new ProductCategory(category));
-                }, this);
+                _.each(categories, function (c) {
+                    var categoryModel = new ProductCategory(c);
+                    if (category === c.Name) {
+                        categoryModel.Selected(true);
+                    }
+
+                    model.push(categoryModel);
+                }, self);
 
                 return model;
             },

@@ -3,7 +3,9 @@
 
         var BalanceTransferController = function() {
             var self = this;
-            self.Table = new TableController();
+            var options = { selectedCategory: 'BalanceTransfer' };
+
+            self.Table = new TableController(options);
         };
 
         return BalanceTransferController;

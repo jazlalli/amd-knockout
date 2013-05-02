@@ -7,19 +7,19 @@
         'shared/messageBus'],
     function (ko, _, TableViewModel, CreditCard, cardsRepository, savingsRepository, messageBus) {
 
-        var TableController = function () {
+        var TableController = function (options) {
             var self = this;
-            self.cardsOptions = { calculatorParameters: null };
+            options = options || {};
             
-            self.initialize.call(self);
+            self.cardsOptions = { calculatorParameters: null };
+            self.initialize.call(self, options);
         };
         
         _.extend(TableController.prototype, {
-            initialize: function () {
+            initialize: function (options) {
                 var self = this;
 
-                self.viewModel = new TableViewModel();
-                
+                self.viewModel = new TableViewModel(options);
                 self.setupSubscriptions.call(self);
                 self.updateCards.call(self);
             },
@@ -40,54 +40,84 @@
                     self.viewModel.sortByDirection('desc');
                     self.updateCards.call(self);
                 });
+
+                messageBus.data.subscribe('table.sort', function (viewModel) {
+                    self.viewModel.sortBy(viewModel.sortBy());
+                    self.viewModel.sortByDirection(viewModel.sortByDirection());
+                    self.updateCards.call(self);
+                });
             },
             
             sortByBalanceTransfer: function (data, e) {
-                var self = App.CurrentController.Table;
+                var self = this;
 
-                self.viewModel.sortBy('DurationofBalRateM');
-                self.viewModel.sortByDirection('desc');
-                self.updateCards();
+                self.sortBy('DurationofBalRateM');
+                self.sortByDirection('desc');
+
+                messageBus.data.publish({
+                    topic: 'table.sort',
+                    data: self
+                });
             },
 
             sortByBalanceTransferFee: function (data, e) {
-                var self = App.CurrentController.Table;
-                
-                self.viewModel.sortBy('IntroBalanceTfrFee');
-                self.viewModel.sortByDirection('asc');
-                self.updateCards();
+                var self = this;
+
+                self.sortBy('IntroBalanceTfrFee');
+                self.sortByDirection('asc');
+
+                messageBus.data.publish({
+                    topic: 'table.sort',
+                    data: self
+                });
             },
 
             sortByPurchase: function (data, e) {
-                var self = App.CurrentController.Table;
-                
-                self.viewModel.sortBy('DurationofPurchRateM');
-                self.viewModel.sortByDirection('desc');
-                self.updateCards();
+                var self = this;
+
+                self.sortBy('DurationofPurchRateM');
+                self.sortByDirection('desc');
+
+                messageBus.data.publish({
+                    topic: 'table.sort',
+                    data: self
+                });
             },
 
             sortBySavings: function (data, e) {
-                var self = App.CurrentController.Table;
+                var self = this;
+
+                self.sortBy('SavingAmount');
+                self.sortByDirection('desc');
                 
-                self.viewModel.sortBy('SavingAmount');
-                self.viewModel.sortByDirection('desc');
-                self.updateCards();
+                messageBus.data.publish({
+                    topic: 'table.sort',
+                    data: self
+                });
             },
 
             sortByEligibility: function (data, e) {
-                var self = App.CurrentController.Table;
+                var self = this;
 
-                self.viewModel.sortBy('Score');
-                self.viewModel.sortByDirection('desc');
-                self.updateCards();
+                self.sortBy('Score');
+                self.sortByDirection('desc');
+                
+                messageBus.data.publish({
+                    topic: 'table.sort',
+                    data: self
+                });
             },
 
             sortByApr: function (data, e) {
-                var self = App.CurrentController.Table;
+                var self = this;
 
-                self.viewModel.sortBy('RepresentativeAPR');
-                self.viewModel.sortByDirection('asc');
-                self.updateCards();
+                self.sortBy('RepresentativeAPR');
+                self.sortByDirection('asc');
+                
+                messageBus.data.publish({
+                    topic: 'table.sort',
+                    data: self
+                });
             },
             
             updateCards: function() {

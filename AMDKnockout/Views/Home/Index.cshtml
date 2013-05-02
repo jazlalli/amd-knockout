@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "~/Views/_Shared/_Layout.cshtml";
+}
+
+<div id="results" class="row-fluid" style="visibility: hidden;">
+    <div class="span3" style="margin-top: 35px;">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
+
+        @*@Html.Partial(Url.Content("~/Views/_Partials/BalanceTransfer/_Calculator.cshtml"))*@
+
+    </div>
+    
+    <div class="span9" data-bind="page: {id: 'start', title: 'ALL CREDIT CARDS', with: AllCards, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Table.cshtml"))
+
+    </div>
+
+    <div class="span9" data-bind="page: {id: '?', title: 'ALL CREDIT CARDS', with: AllCards, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Table.cshtml"))
+
+    </div>
+
+    <div class="span9" data-bind="page: {id: 'BalanceTransfer', title: 'BALANCE TRANSFER CREDIT CARDS', with: BalanceTransfer, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/BalanceTransfer/_Table.cshtml"))
+
+    </div>
+    
+    <div class="span9" data-bind="page: {id: 'Purchase', title: '0% PURCHASE CREDIT CARDS', with: Purchase, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Purchase/_Table.cshtml"))
+
+    </div>
+    
+    <div class="span9" data-bind="page: {id: 'Cashback', title: 'CASHBACK CREDIT CARDS', with: Cashback, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Cashback/_Table.cshtml"))
+
+    </div>
+    
+    <div class="span9" data-bind="page: {id: 'Rewards', title: 'REWARD CREDIT CARDS', with: Rewards, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Rewards/_Table.cshtml"))
+
+    </div>
+    
+    <div class="span9" data-bind="page: {id: 'Combined', title: 'BALANCE TRANSFER & PURCHASE CARDS', with: Combined, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Combined/_Table.cshtml"))
+
+    </div>
+    
+    <div class="span9" data-bind="page: {id: 'PoorCredit', title: 'CREDIT CARDS FOR POOR CREDIT', with: PoorCredit, showElement: App.showTable, hideElement: App.hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/PoorCredit/_Table.cshtml"))
+
+    </div>
+</div>

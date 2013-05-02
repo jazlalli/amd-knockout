@@ -3,7 +3,9 @@
 
         var AllCardsController = function () {
             var self = this;
-            self.Table = new TableController();
+            var options = { selectedCategory: 'CreditCard' };
+
+            self.Table = new TableController(options);
         };
 
         return AllCardsController;

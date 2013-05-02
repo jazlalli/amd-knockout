@@ -1,0 +1,27 @@
+﻿<div data-page="CreditCard" class="row-fluid" style="visibility: hidden;" data-bind="page: {id: 'start', title: 'ALL CREDIT CARDS', sourceCache: true}">
+    <div class="span3" style="margin-top: 35px;">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
+
+    </div>
+
+    <div class="span9" data-bind="page{with: AllCards, withOnShow: loadViewModel('AllCards'), showElement: showTable, hideElement: hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Table.cshtml"))
+
+    </div>
+</div>
+
+<div data-page="CreditCard" class="row-fluid" style="visibility: hidden;" data-bind="page: {id: '?', title: 'ALL CREDIT CARDS', sourceCache: true}">
+    <div class="span3" style="margin-top: 35px;">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
+
+    </div>
+
+    <div class="span9" data-bind="page{with: AllCards, withOnShow: loadViewModel('AllCards'), showElement: showTable, hideElement: hideTable}">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Table.cshtml"))
+
+    </div>
+</div>

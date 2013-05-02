@@ -3,7 +3,9 @@
 
         var CashbackController = function() {
             var self = this;
-            self.Table = new TableController();
+            var options = { selectedCategory: 'Cashback' };
+
+            self.Table = new TableController(options);
         };
 
         return CashbackController;

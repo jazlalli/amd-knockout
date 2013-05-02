@@ -25,52 +25,54 @@
         PoorCreditController,
         messageBus) {
 
-        var App = function(options) {
+        var App = function (options) {
+            var self = this;
+
             options = options || {};
-            this.initialize();
+            self.rootViewModel = {};
+
+            self.initialize.call(self, options);
         };
 
         _.extend(App.prototype, {
-            initialize: function() {
-                var self = this;
-
-                // TODO Wrap up controllers in page level controller
-                self.CategoryController = new CategoryController();
-                self.AllCardsController = new AllCardsController();
-                self.BalanceTransferController = new BalanceTransferController();
-                self.PurchaseController = new PurchaseController();
-                self.CashbackController = new CashbackController();
-                self.RewardsController = new RewardsController();
-                self.CombinedController = new CombinedController();
-                self.PoorCreditController = new PoorCreditController();
-
-                this.ready();
+            initialize: function () {
             },
 
-            bootstrap: function() {
+            bootstrap: function (path) {
                 var self = this;
 
                 pager.useHTML5history = true;
                 pager.Href5.history = History;
+                
+                self.AllCards = new AllCardsController();
+                self.BalanceTransfer = new BalanceTransferController();
+                self.Purchase = new PurchaseController();
+                self.Cashback = new CashbackController();
+                self.Rewards = new RewardsController();
+                self.Combined = new CombinedController();
+                self.PoorCredit = new PoorCreditController();
 
-                var rootViewModel = {
-                    categories: self.CategoryController.viewModel,
-                    allcards: self.AllCardsController.Table.viewModel,
-                    balancetransfer: self.BalanceTransferController.Table.viewModel,
-                    purchase: self.PurchaseController.Table.viewModel,
-                    cashback: self.CashbackController.Table.viewModel,
-                    rewards: self.RewardsController.Table.viewModel,
-                    combined: self.CombinedController.Table.viewModel,
-                    poorcredit: self.PoorCreditController.Table.viewModel
-                };
+                self.rootViewModel.AllCards = self.AllCards.Table.viewModel;
+                self.rootViewModel.BalanceTransfer = self.BalanceTransfer.Table.viewModel;
+                self.rootViewModel.Purchase = self.Purchase.Table.viewModel;
+                self.rootViewModel.Cashback = self.Cashback.Table.viewModel;
+                self.rootViewModel.Rewards = self.Rewards.Table.viewModel;
+                self.rootViewModel.Combined = self.Combined.Table.viewModel;
+                self.rootViewModel.PoorCredit = self.PoorCredit.Table.viewModel;
 
-                pager.extendWithPage(rootViewModel);
-                ko.applyBindings(rootViewModel);
-                pager.startHistoryJs();
+                self.CategoryController = new CategoryController(path);
+                self.rootViewModel.Categories = self.CategoryController.viewModel;
+
+                pager.extendWithPage(self.rootViewModel);
+                ko.applyBindings(self.rootViewModel);
+                pager.startHistoryJs(path);
+
+                self.ready.call(self, path);
             },
-
-            ready: function() {
+            
+            ready: function (path) {
                 messageBus.app.publish('ready');
+                $("#results").css({ visibility: 'visible' });
             }
         });
 

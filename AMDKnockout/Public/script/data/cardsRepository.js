@@ -61,12 +61,15 @@
 
     return {
         getCards: function (options) {
-
+            _cardsData = [];
+            
             getCardsInCategory(options);
             mapOfferDetails(options);
             sortCards(options);
+            
+            _cardsData = _cardsData.slice(0, (options.pageSize * options.currentPage));
 
-            return _cardsData.slice(0, (options.pageSize * options.currentPage));
+            return _cardsData;
         }
     };
 });

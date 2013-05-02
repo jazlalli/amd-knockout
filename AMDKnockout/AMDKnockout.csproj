@@ -104,15 +104,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\DataRepository.cs" />
     <Compile Include="Controllers\CardsController.cs" />
-    <Compile Include="Controllers\BalanceTransferController.cs" />
-    <Compile Include="Controllers\PurchaseController.cs" />
-    <Compile Include="Controllers\CashbackController.cs" />
-    <Compile Include="Controllers\RewardsController.cs" />
-    <Compile Include="Controllers\CombinedController.cs" />
-    <Compile Include="Controllers\PoorCreditController.cs" />
-    <Compile Include="Controllers\CreditCardController.cs" />
+    <Compile Include="Helpers\DataRepository.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SavingsCalculatorController.cs" />
     <Compile Include="Models\ResponseData.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,17 +165,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Public\img\" />
-    <Folder Include="Public\views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_Shared\_Layout.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\CreditCard\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\Cards.json" />
@@ -256,22 +245,13 @@
     <Content Include="Views\_Partials\Rewards\_TableRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\BalanceTransfer\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Purchase\Index.cshtml" />
+    <Content Include="Views\_Partials\AllCards\_Page.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Cashback\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Rewards\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Combined\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\PoorCredit\Index.cshtml" />
+    <Content Include="Views\_Partials\BalanceTransfer\_Page.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

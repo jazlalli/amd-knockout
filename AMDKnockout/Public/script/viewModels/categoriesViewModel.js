@@ -6,6 +6,8 @@
 
         var CategoriesViewModel = function () {
             this.category = [];
+            this.selectedCategory = null;
+
             BaseViewModel.apply(this, arguments);
         };
 

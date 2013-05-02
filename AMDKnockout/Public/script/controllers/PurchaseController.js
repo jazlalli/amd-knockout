@@ -3,7 +3,9 @@
 
         var PurchaseController = function() {
             var self = this;
-            self.Table = new TableController();
+            var options = { selectedCategory: 'Purchase' };
+
+            self.Table = new TableController(options);
         };
 
         return PurchaseController;

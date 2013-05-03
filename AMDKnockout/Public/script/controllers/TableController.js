@@ -27,96 +27,14 @@
             setupSubscriptions: function () {
                 var self = this;
 
-                messageBus.data.subscribe('category.changed', function (category) {
-                    self.viewModel.selectedCategory(category);
-                    self.viewModel.sortBy('DisplayOrder');
-                    self.viewModel.sortByDirection('asc');
-                    self.updateCards.call(self);
-                });
-
                 messageBus.data.subscribe('calculator.update', function (calculatorParameters) {
+
+                    console.log('calculator update subscription');
+
                     self.cardsOptions.calculatorParameters = calculatorParameters;
                     self.viewModel.sortBy('SavingAmount');
                     self.viewModel.sortByDirection('desc');
                     self.updateCards.call(self);
-                });
-
-                messageBus.data.subscribe('table.sort', function (viewModel) {
-                    self.viewModel.sortBy(viewModel.sortBy());
-                    self.viewModel.sortByDirection(viewModel.sortByDirection());
-                    self.updateCards.call(self);
-                });
-            },
-            
-            sortByBalanceTransfer: function (data, e) {
-                var self = this;
-
-                self.sortBy('DurationofBalRateM');
-                self.sortByDirection('desc');
-
-                messageBus.data.publish({
-                    topic: 'table.sort',
-                    data: self
-                });
-            },
-
-            sortByBalanceTransferFee: function (data, e) {
-                var self = this;
-
-                self.sortBy('IntroBalanceTfrFee');
-                self.sortByDirection('asc');
-
-                messageBus.data.publish({
-                    topic: 'table.sort',
-                    data: self
-                });
-            },
-
-            sortByPurchase: function (data, e) {
-                var self = this;
-
-                self.sortBy('DurationofPurchRateM');
-                self.sortByDirection('desc');
-
-                messageBus.data.publish({
-                    topic: 'table.sort',
-                    data: self
-                });
-            },
-
-            sortBySavings: function (data, e) {
-                var self = this;
-
-                self.sortBy('SavingAmount');
-                self.sortByDirection('desc');
-                
-                messageBus.data.publish({
-                    topic: 'table.sort',
-                    data: self
-                });
-            },
-
-            sortByEligibility: function (data, e) {
-                var self = this;
-
-                self.sortBy('Score');
-                self.sortByDirection('desc');
-                
-                messageBus.data.publish({
-                    topic: 'table.sort',
-                    data: self
-                });
-            },
-
-            sortByApr: function (data, e) {
-                var self = this;
-
-                self.sortBy('RepresentativeAPR');
-                self.sortByDirection('asc');
-                
-                messageBus.data.publish({
-                    topic: 'table.sort',
-                    data: self
                 });
             },
             

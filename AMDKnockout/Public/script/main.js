@@ -61,6 +61,24 @@ define(function(require) {
         var path = window.location.pathname.substr(1, window.location.pathname.length);
 
         window.App = new App();
+
+        window.spinnerLoader = function (page, element) {
+            var loader = {};
+            var txt = $('<img src="Public/images/loader.gif"/>');
+
+            loader.load = function () {
+                $(element).empty();
+                $(element).append(txt);
+            };
+            loader.unload = function () {
+                txt.remove();
+            };
+
+            console.log(loader);
+
+            return loader;
+        };
+
         window.App.bootstrap(path);
     });
 });

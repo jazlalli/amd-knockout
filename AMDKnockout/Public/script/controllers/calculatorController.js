@@ -14,7 +14,6 @@
                 var self = this;
 
                 self.viewModel = new CalculatorViewModel();
-                self.setupSubscriptions.call(self);
             },
 
             updateCalculations: function () {
@@ -44,15 +43,6 @@
                 });
 
                 return false;
-            },
-            
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('category.changed', function (category) {
-                    self.viewModel.selectedCategory(category);
-                    self.updateCalculations.call(self);
-                });
             }
         });
 

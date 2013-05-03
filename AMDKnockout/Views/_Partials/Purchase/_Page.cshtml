@@ -1,0 +1,15 @@
+﻿<div class="row-fluid" data-bind="with: Purchase">
+    <div class="span3" style="margin-top: 35px;">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Purchase/_Calculator.cshtml"))
+
+    </div>
+
+    <div class="span9">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Purchase/_Table.cshtml"))
+
+    </div>
+</div>

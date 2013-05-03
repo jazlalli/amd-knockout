@@ -1,4 +1,4 @@
-﻿<div id="cashbackCalculator" class="well" style="padding-bottom: 50px" data-bind="page: {id: 'Cashback', with: cashback}">
+﻿<div id="cashbackCalculator" class="well" style="padding-bottom: 50px" data-bind="with: Calculator">
     <h5>Monthly Spend:</h5>
     <div style="margin-bottom: 10px;">
         <label for="monthlySpend" data-bind="text: monthlySpend"></label>
@@ -7,5 +7,5 @@
             title="How much do you plan to spend in the average month?"></i>
     </div>
 
-    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Controller.Calculator.updateCalculations"><span>Update</span><span> ›</span></a>
+    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Cashback.Calculator.updateCalculations"><span>Update</span><span> ›</span></a>
 </div>

@@ -1,4 +1,4 @@
-﻿<div data-page="BalanceTransfer" class="row-fluid" style="visibility: hidden;" data-bind="page: {id: 'BalanceTransfer', title: 'BALANCE TRANSFER CREDIT CARDS', sourceCache: true}">
+﻿<div class="row-fluid" data-bind="with: BalanceTransfer">
     <div class="span3" style="margin-top: 35px;">
 
         @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
@@ -7,7 +7,7 @@
 
     </div>
 
-    <div class="span9" data-bind="page{with: BalanceTransfer, withOnShow: loadViewModel('BalanceTransfer'), showElement: showTable, hideElement: hideTable}">
+    <div class="span9">
 
         @Html.Partial(Url.Content("~/Views/_Partials/BalanceTransfer/_Table.cshtml"))
 

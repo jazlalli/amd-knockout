@@ -1,0 +1,15 @@
+﻿<div class="row-fluid" data-bind="with: Rewards">
+    <div class="span3" style="margin-top: 35px;">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Rewards/_Calculator.cshtml"))
+
+    </div>
+
+    <div class="span9">
+
+        @Html.Partial(Url.Content("~/Views/_Partials/Rewards/_Table.cshtml"))
+
+    </div>
+</div>

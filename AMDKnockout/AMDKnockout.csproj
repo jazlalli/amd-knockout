@@ -253,6 +253,21 @@
   <ItemGroup>
     <Content Include="Views\_Partials\BalanceTransfer\_Page.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Partials\Cashback\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Partials\Combined\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Partials\PoorCredit\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Partials\Purchase\_Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_Partials\Rewards\_Page.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

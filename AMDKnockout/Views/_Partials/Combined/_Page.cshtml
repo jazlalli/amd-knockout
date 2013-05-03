@@ -1,4 +1,4 @@
-﻿<div class="row-fluid" data-bind="with: AllCards">
+﻿<div class="row-fluid" data-bind="with: Combined">
     <div class="span3" style="margin-top: 35px;">
 
         @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
@@ -7,7 +7,7 @@
 
     <div class="span9">
 
-        @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Table.cshtml"))
+        @Html.Partial(Url.Content("~/Views/_Partials/Combined/_Table.cshtml"))
 
     </div>
 </div>

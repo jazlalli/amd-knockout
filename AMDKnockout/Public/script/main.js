@@ -61,26 +61,6 @@ define(function(require) {
         var path = window.location.pathname.substr(1, window.location.pathname.length);
 
         window.App = new App();
-        
-        window.App.showTable = function (page, callback) {
-            $(page.element).fadeIn(500, callback);
-        };
-        
-        window.App.hideTable = function (page, callback) {
-            var $e = $(page.element);
-            if (!page.pageHiddenOnce) {
-                page.pageHiddenOnce = true;
-                $e.hide();
-            } else {
-                $e.fadeOut(100, function () {
-                    $e.hide();
-                });
-                if (callback) {
-                    callback();
-                }
-            }
-        };
-        
         window.App.bootstrap(path);
     });
 });

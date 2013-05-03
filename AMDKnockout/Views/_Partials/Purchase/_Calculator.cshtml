@@ -1,4 +1,4 @@
-﻿<div id="purchaseCalculator" class="well" style="padding-bottom: 50px" data-bind="page: {id: 'Purchase', with: purchase}">
+﻿<div id="purchaseCalculator" class="well" style="padding-bottom: 50px" data-bind="with: Calculator">
     <h5>Monthly Spend:</h5>
     <div>
         <label for="monthlySpend" data-bind="text: '£' + monthlySpend()"></label>
@@ -20,5 +20,5 @@
         </label>
     </div>
 
-    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Controller.Calculator.updateCalculations"><span>Update</span><span> ›</span></a>
+    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Purchase.Calculator.updateCalculations"><span>Update</span><span> ›</span></a>
 </div>

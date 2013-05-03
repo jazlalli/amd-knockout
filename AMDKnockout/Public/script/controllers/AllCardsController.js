@@ -6,6 +6,7 @@
             var options = { selectedCategory: 'CreditCard' };
 
             self.Table = new TableController(options);
+            self.Categories = new CategoryController(options.selectedCategory);
         };
 
         return AllCardsController;

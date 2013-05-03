@@ -2,7 +2,6 @@
         'underscore',
         'knockout',
         'pager',
-        'controllers/CategoryController',
         'controllers/AllCardsController',
         'controllers/BalanceTransferController',
         'controllers/PurchaseController',
@@ -15,7 +14,6 @@
         _,
         ko,
         pager,
-        CategoryController,
         AllCardsController,
         BalanceTransferController,
         PurchaseController,
@@ -27,10 +25,8 @@
 
         var App = function (options) {
             var self = this;
-
             options = options || {};
-            self.rootViewModel = {};
-
+            
             self.initialize.call(self, options);
         };
 
@@ -39,7 +35,9 @@
             },
 
             bootstrap: function (path) {
-                var self = this;
+                var self = this,
+                    p1, p2, p3,
+                    rootViewModel = {};
 
                 pager.useHTML5history = true;
                 pager.Href5.history = History;
@@ -52,27 +50,40 @@
                 self.Combined = new CombinedController();
                 self.PoorCredit = new PoorCreditController();
 
-                self.rootViewModel.AllCards = self.AllCards.Table.viewModel;
-                self.rootViewModel.BalanceTransfer = self.BalanceTransfer.Table.viewModel;
-                self.rootViewModel.Purchase = self.Purchase.Table.viewModel;
-                self.rootViewModel.Cashback = self.Cashback.Table.viewModel;
-                self.rootViewModel.Rewards = self.Rewards.Table.viewModel;
-                self.rootViewModel.Combined = self.Combined.Table.viewModel;
-                self.rootViewModel.PoorCredit = self.PoorCredit.Table.viewModel;
+                for (p1 in self) {
+                    if (self.hasOwnProperty(p1)) {
+                        rootViewModel[p1] = {};
 
-                self.CategoryController = new CategoryController(path);
-                self.rootViewModel.Categories = self.CategoryController.viewModel;
+                        for (p2 in self[p1]) {
+                            if (self[p1].hasOwnProperty(p2)) {
+                                if (p2 !== 'viewModel') {
+                                    rootViewModel[p1][p2] = {};
+                                } else {
+                                    rootViewModel[p1][p2] = self[p1][p2];
+                                }
 
-                pager.extendWithPage(self.rootViewModel);
-                ko.applyBindings(self.rootViewModel);
+                                for (p3 in self[p1][p2]) {
+                                    if (self[p1][p2].hasOwnProperty(p3)) {
+                                        if (p3 === 'viewModel') {
+                                            rootViewModel[p1][p2] = self[p1][p2][p3];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                pager.extendWithPage(rootViewModel);
+                ko.applyBindings(rootViewModel);
                 pager.startHistoryJs(path);
 
-                self.ready.call(self, path);
+                self.ready.call(self);
             },
             
-            ready: function (path) {
+            ready: function () {
                 messageBus.app.publish('ready');
-                $("#results").css({ visibility: 'visible' });
+                $("#viewMain").css({ visibility: 'visible' });
             }
         });
 

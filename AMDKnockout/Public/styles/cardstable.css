@@ -1,4 +1,8 @@
-﻿thead.table-row {
+﻿.active {
+    background-color: #eee;
+}
+
+thead.table-row {
     width: 100%;
 }
 thead.col-small {

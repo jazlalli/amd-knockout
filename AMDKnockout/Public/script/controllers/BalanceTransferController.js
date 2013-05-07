@@ -1,4 +1,8 @@
-﻿define(['pager', 'controllers/TableController', 'controllers/CategoryController', 'controllers/CalculatorController', 'shared/messageBus' ],
+﻿define(['pager',
+        'controllers/TableController',
+        'controllers/CategoryController',
+        'controllers/CalculatorController',
+        'shared/messageBus'],
     function(pager, TableController, CategoryController, CalculatorController, messageBus) {
 
         var BalanceTransferController = function() {
@@ -8,23 +12,12 @@
             self.Table = new TableController(options);
             self.Categories = new CategoryController(options.selectedCategory);
             self.Calculator = new CalculatorController();
-            
+
             self.initialize.call(self);
         };
         
         _.extend(BalanceTransferController.prototype, {
             initialize: function () {
-                var self = this;
-
-                self.setupSubscriptions.call(self);
-            },
-
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('balancetransfer.table.sort', function () {
-                    self.Table.updateCards();
-                });
             },
 
             sortByBalanceTransfer: function () {
@@ -71,6 +64,15 @@
 
                 messageBus.data.publish({
                     topic: 'balancetransfer.table.sort',
+                    data: self
+                });
+            },
+            
+            updateSavings: function () {
+                var self = this;
+
+                messageBus.data.publish({
+                    topic: 'balancetransfer.savings.update',
                     data: self
                 });
             }

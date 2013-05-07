@@ -1,7 +1,6 @@
 ﻿define(['knockout', 'underscore', 'viewModels/BaseViewModel'],
     function (ko, _, BaseViewModel) {
         var CalculatorViewModel = function () {
-            this.selectedCategory = 'CreditCard';
             this.balance = 2000;
             this.monthlyRepayment = 400;
             this.clearBalance = true;

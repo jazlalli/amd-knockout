@@ -1,6 +1,8 @@
 ﻿define(['jquery', 'underscore'], function($, _) {
     'use strict';
 
+    // checks local storage for requested data before making an ajax call. key is the URL path.
+
     if (window.ResponseData) {
         localStorage.setItem('/Cards', JSON.stringify(window.ResponseData));
     }

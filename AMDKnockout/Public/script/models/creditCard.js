@@ -32,6 +32,7 @@ define(["knockout", "underscore", "viewModels/baseViewModel"], function (ko, _, 
             var self = this;
             var prop;
 
+            // extracting nested OfferDetails up to the object root
             if (_.isFunction(self.OfferDetail)) {
                 for (prop in self.OfferDetail()) {
                     if (self.OfferDetail().hasOwnProperty(prop)) {

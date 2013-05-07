@@ -50,6 +50,8 @@
                 self.Combined = new CombinedController();
                 self.PoorCredit = new PoorCreditController();
 
+
+                // traversing the App object to find all the viewmodels and pull them up to top level
                 for (p1 in self) {
                     if (self.hasOwnProperty(p1)) {
                         rootViewModel[p1] = {};

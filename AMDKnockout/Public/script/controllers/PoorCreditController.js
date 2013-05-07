@@ -1,4 +1,7 @@
-﻿define(['pager', 'controllers/TableController', 'controllers/CategoryController', 'shared/messageBus'],
+﻿define(['pager',
+        'controllers/TableController',
+        'controllers/CategoryController',
+        'shared/messageBus'],
     function (pager, TableController, CategoryController, messageBus) {
 
         var PoorCreditController = function() {
@@ -13,19 +16,8 @@
 
         _.extend(PoorCreditController.prototype, {
             initialize: function () {
-                var self = this;
-
-                self.setupSubscriptions.call(self);
             },
 
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('poorcredit.table.sort', function () {
-                    self.Table.updateCards();
-                });
-            },
-            
             sortByEligibility: function () {
                 var self = this;
 

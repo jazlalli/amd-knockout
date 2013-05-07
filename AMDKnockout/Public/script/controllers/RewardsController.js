@@ -1,4 +1,8 @@
-﻿define(['pager', 'controllers/TableController', 'controllers/CategoryController', 'controllers/CalculatorController', 'shared/messageBus'],
+﻿define(['pager',
+        'controllers/TableController',
+        'controllers/CategoryController',
+        'controllers/CalculatorController',
+        'shared/messageBus'],
     function (pager, TableController, CategoryController, CalculatorController, messageBus) {
 
         var RewardsController = function () {
@@ -14,17 +18,6 @@
         
         _.extend(RewardsController.prototype, {
             initialize: function () {
-                var self = this;
-
-                self.setupSubscriptions.call(self);
-            },
-
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('rewards.table.sort', function () {
-                    self.Table.updateCards();
-                });
             },
 
             sortBySavings: function () {
@@ -50,6 +43,15 @@
                     data: self
                 });
             },
+
+            updateSavings: function () {
+                var self = this;
+
+                messageBus.data.publish({
+                    topic: 'rewards.savings.update',
+                    data: self
+                });
+            }
         });
 
         return RewardsController;

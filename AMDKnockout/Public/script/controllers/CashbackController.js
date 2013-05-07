@@ -1,4 +1,8 @@
-﻿define(['pager', 'controllers/TableController', 'controllers/CategoryController', 'controllers/CalculatorController', 'shared/messageBus'],
+﻿define(['pager',
+        'controllers/TableController',
+        'controllers/CategoryController',
+        'controllers/CalculatorController',
+        'shared/messageBus'],
     function (pager, TableController, CategoryController, CalculatorController, messageBus) {
 
         var CashbackController = function() {
@@ -14,17 +18,6 @@
         
         _.extend(CashbackController.prototype, {
             initialize: function () {
-                var self = this;
-
-                self.setupSubscriptions.call(self);
-            },
-
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('cashback.table.sort', function () {
-                    self.Table.updateCards();
-                });
             },
 
             sortBySavings: function () {
@@ -47,6 +40,15 @@
 
                 messageBus.data.publish({
                     topic: 'cashback.table.sort',
+                    data: self
+                });
+            },
+            
+            updateSavings: function () {
+                var self = this;
+
+                messageBus.data.publish({
+                    topic: 'cashback.savings.update',
                     data: self
                 });
             }

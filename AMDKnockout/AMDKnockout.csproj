@@ -131,7 +131,6 @@
     <Content Include="Public\script\controllers\AllCardsController.js" />
     <Content Include="Public\script\data\categoriesRepository.js" />
     <Content Include="Public\script\data\savingsRepository.js" />
-    <Content Include="Public\script\router.js" />
     <Content Include="Public\script\shared\extensions.js" />
     <Content Include="Public\script\main.js" />
     <Content Include="Public\script\models\ProductCategory.js" />

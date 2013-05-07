@@ -12,8 +12,9 @@
     var _getSavings = function (data) {
         var _savings = [];
 
+        //find the right key from array above
         var _key = _.find(_keys, function (key) {
-            return key.indexOf(data.selectedCategory) > -1;
+            return key.indexOf(data.category) > -1;
         });
 
         if (_key) {

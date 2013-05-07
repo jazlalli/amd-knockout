@@ -11,6 +11,8 @@
             var prop;
 
             options = options || {};
+
+            // automatically creates observable or observableArray of each object property
             for (prop in this) {
                 if (this.hasOwnProperty(prop)) {
                     if (options[prop]) {

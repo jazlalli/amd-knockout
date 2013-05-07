@@ -1,4 +1,7 @@
-﻿define(['pager', 'controllers/CategoryController', 'controllers/TableController', 'shared/messageBus'],
+﻿define(['pager',
+        'controllers/CategoryController',
+        'controllers/TableController',
+        'shared/messageBus'],
     function (pager, CategoryController, TableController, messageBus) {
 
         var CombinedController = function () {
@@ -13,17 +16,6 @@
         
         _.extend(CombinedController.prototype, {
             initialize: function () {
-                var self = this;
-
-                self.setupSubscriptions.call(self);
-            },
-
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('combined.table.sort', function () {
-                    self.Table.updateCards();
-                });
             },
 
             sortByBalanceTransfer: function () {

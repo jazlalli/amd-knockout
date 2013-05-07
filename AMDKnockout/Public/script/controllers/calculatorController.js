@@ -16,31 +16,14 @@
                 self.viewModel = new CalculatorViewModel();
             },
 
-            updateCalculations: function () {
-                var self = this,
-                    property,
-                    calculatorParameters = {};
+            updateSavings: function (data) {
+                var self = this;
+
+                console.log(data);
                 
                 if (event) {
                     event.preventDefault();
                 }
-
-                if (self.viewModel) {
-                    for (property in self.viewModel) {
-                        if (self.viewModel.hasOwnProperty(property)) {
-                            if (_.isFunction(self.viewModel[property])) {
-                                calculatorParameters[property] = self.viewModel[property]();
-                            } else {
-                                calculatorParameters[property] = self.viewModel[property];
-                            }
-                        }
-                    }
-                }
-
-                messageBus.data.publish({
-                    topic: 'calculator.update',
-                    data: calculatorParameters
-                });
 
                 return false;
             }

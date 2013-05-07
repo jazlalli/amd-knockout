@@ -1,4 +1,8 @@
-﻿define(['pager', 'controllers/TableController', 'controllers/CategoryController', 'controllers/CalculatorController', 'shared/messageBus'],
+﻿define(['pager',
+        'controllers/TableController',
+        'controllers/CategoryController',
+        'controllers/CalculatorController',
+        'shared/messageBus'],
     function(pager, TableController, CategoryController, CalculatorController, messageBus) {
 
         var PurchaseController = function() {
@@ -14,17 +18,6 @@
         
         _.extend(PurchaseController.prototype, {
             initialize: function () {
-                var self = this;
-
-                self.setupSubscriptions.call(self);
-            },
-
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('purchase.table.sort', function () {
-                    self.Table.updateCards();
-                });
             },
 
             sortByPurchase: function (data, e) {
@@ -59,6 +52,15 @@
 
                 messageBus.data.publish({
                     topic: 'purchase.table.sort',
+                    data: self
+                });
+            },
+            
+            updateSavings: function () {
+                var self = this;
+
+                messageBus.data.publish({
+                    topic: 'purchase.savings.update',
                     data: self
                 });
             }

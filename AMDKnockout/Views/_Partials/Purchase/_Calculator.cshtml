@@ -7,7 +7,7 @@
             title="How much do you plan to spend in the average month?"></i>
     </div>
 
-    <h5 class="small">Will you spend more than <span data-bind="text: monthlySpend"></span>in the first month?</h5>
+    <h5 class="small">Will you spend more than £<span data-bind="text: monthlySpend"></span> in the first month?</h5>
     <div style="margin-bottom: 10px;">
         <label class="radio inline">
             <input type="radio" name="higherFirstMonthSpend" value="true" data-bind="checked: higherFirstMonthSpend">
@@ -20,5 +20,5 @@
         </label>
     </div>
 
-    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Purchase.Calculator.updateCalculations"><span>Update</span><span> ›</span></a>
+    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Purchase.updateSavings"><span>Update</span><span> ›</span></a>
 </div>

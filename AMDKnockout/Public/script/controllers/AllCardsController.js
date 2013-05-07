@@ -1,4 +1,7 @@
-﻿define(['pager', 'controllers/CategoryController', 'controllers/TableController', 'shared/messageBus'],
+﻿define(['pager',
+        'controllers/CategoryController',
+        'controllers/TableController',
+        'shared/messageBus'],
     function(pager, CategoryController, TableController, messageBus) {
 
         var AllCardsController = function () {
@@ -13,17 +16,6 @@
 
         _.extend(AllCardsController.prototype, {
             initialize: function () {
-                var self = this;
-                
-                self.setupSubscriptions.call(self);
-            },
-            
-            setupSubscriptions: function () {
-                var self = this;
-
-                messageBus.data.subscribe('allcards.table.sort', function () {
-                    self.Table.updateCards();
-                });
             },
             
             sortByBalanceTransfer: function () {
@@ -33,7 +25,7 @@
                 self.sortByDirection('desc');
 
                 messageBus.data.publish({
-                    topic: 'allcards.table.sort',
+                    topic: 'creditcard.table.sort',
                     data: self
                 });
             },
@@ -45,7 +37,7 @@
                 self.sortByDirection('desc');
 
                 messageBus.data.publish({
-                    topic: 'allcards.table.sort',
+                    topic: 'creditcard.table.sort',
                     data: self
                 });
             },
@@ -57,7 +49,7 @@
                 self.sortByDirection('desc');
 
                 messageBus.data.publish({
-                    topic: 'allcards.table.sort',
+                    topic: 'creditcard.table.sort',
                     data: self
                 });
             }

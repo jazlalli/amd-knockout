@@ -1,5 +1,7 @@
 define(['underscore'], function (_) {
     _.extend(Array.prototype, {
+
+        // sorts array of objects by the specified property, in the specified direction
         sortByProperty: function (property, direction) {
             this.sort(function(obj1, obj2) {
                 var val1 = obj1[property],

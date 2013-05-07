@@ -9,8 +9,10 @@
     <td style="min-width: 110px; min-width: 110px;">
         <p data-bind="text: PurchasesText"></p>
     </td>
-    <td style="text-align: center;">
-        <p><b data-bind="text: Score() > 0 ? Score() : '?'"></b></p>
+    <td style="position: relative;">
+        <div class="badge">
+            <p><b data-bind="text: Score() > 0 ? Score() : '?'"></b></p>
+        </div>
     </td>
     <td style="padding-top: 45px;">
         <a class="btn btn-warning">Apply Now</a>

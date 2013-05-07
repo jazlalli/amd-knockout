@@ -18,7 +18,7 @@ thead.col-xlarge {
     width: 25%;
 }
 
-td .badge {
+.badge {
     -webkit-border-radius: 999px;
     -moz-border-radius: 999px;
     border-radius: 999px;
@@ -35,10 +35,11 @@ td .badge {
     right: 25px;
     position: absolute;
     z-index: 999px;
+    text-decoration: none;
 }
 
-tr:hover .badge {
-    background: #fff;
+.badge:hover {
     border: 1px solid #ff5a00;
+    background-color: #ff5a00;
     color: #ff5a00;
 }

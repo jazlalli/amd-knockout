@@ -9,6 +9,7 @@
         'controllers/RewardsController',
         'controllers/CombinedController',
         'controllers/PoorCreditController',
+        'controllers/FormController',
         'shared/messageBus'],
     function ($,
         _,
@@ -21,6 +22,7 @@
         RewardsController,
         CombinedController,
         PoorCreditController,
+        FormController,
         messageBus) {
 
         var App = function (options) {
@@ -49,25 +51,29 @@
                 self.Rewards = new RewardsController();
                 self.Combined = new CombinedController();
                 self.PoorCredit = new PoorCreditController();
-
-
+                self.Form = new FormController();
+                
                 // traversing the App object to find all the viewmodels and pull them up to top level
                 for (p1 in self) {
                     if (self.hasOwnProperty(p1)) {
-                        rootViewModel[p1] = {};
+                        if (p1 === 'viewModel') {
+                            rootViewModel[p1] = self[p1];
+                        } else {
+                            rootViewModel[p1] = {};
 
-                        for (p2 in self[p1]) {
-                            if (self[p1].hasOwnProperty(p2)) {
-                                if (p2 !== 'viewModel') {
-                                    rootViewModel[p1][p2] = {};
-                                } else {
-                                    rootViewModel[p1][p2] = self[p1][p2];
-                                }
+                            for (p2 in self[p1]) {
+                                if (self[p1].hasOwnProperty(p2)) {
+                                    if (p2 === 'viewModel') {
+                                        rootViewModel[p1] = self[p1][p2];
+                                    } else {
+                                        rootViewModel[p1][p2] = {};
+                                    }
 
-                                for (p3 in self[p1][p2]) {
-                                    if (self[p1][p2].hasOwnProperty(p3)) {
-                                        if (p3 === 'viewModel') {
-                                            rootViewModel[p1][p2] = self[p1][p2][p3];
+                                    for (p3 in self[p1][p2]) {
+                                        if (self[p1][p2].hasOwnProperty(p3)) {
+                                            if (p3 === 'viewModel') {
+                                                rootViewModel[p1][p2] = self[p1][p2][p3];
+                                            }
                                         }
                                     }
                                 }

@@ -4,13 +4,11 @@
 
 <div id="viewMain" style="visibility: hidden;">
     
-    @Html.Partial(Url.Content("~/Views/_Partials/_Form.cshtml"))
-
     <div data-bind="page: {id: 'start', title: 'ALL CREDIT CARDS'}">
         @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Page.cshtml"))
     </div>
 
-    <div data-bind="page: {id: '?', title: 'ALL CREDIT CARDS'}">
+    <div data-bind="page: {id: 'CreditCard', title: 'ALL CREDIT CARDS'}">
         @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Page.cshtml"))
     </div>
 

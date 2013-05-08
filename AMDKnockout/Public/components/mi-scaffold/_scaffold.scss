@@ -1,0 +1,70 @@
+@import "compass";
+
+@mixin get-width( $column-num ){
+  width: (100% / $num-of-columns) * $column-num;
+
+  @media screen and(max-width: 480px){
+    width:100%;
+  }
+}
+
+@mixin get-gutted-width( $column-num ){
+  @extend .cf;
+
+  width: ((100% / $num-of-columns) * $column-num) - $gutter-width ;
+  margin-left: ( $gutter-width / 2 );
+  margin-right: ( $gutter-width / 2 );
+
+  @media screen and(max-width: 480px){
+    width: 98%;
+    margin: 1%;
+
+  }
+
+}
+
+@mixin get-centered-width( $column-num ){
+  @extend .cf;
+
+  $width: ((100% / $num-of-columns) * $column-num) - $gutter-width ;
+  $margin: (100% - $width)/2 ;
+
+  width: $width;
+  margin-left : $margin;
+  margin-right: $margin;
+}
+
+%col{
+  float: left;
+}
+
+@for $i from 1 through 12{
+
+  .col-#{$i}{
+    @extend %col;
+    @include get-width( $i );
+
+    &.gutted{
+      @include get-gutted-width( $i );
+
+
+
+      &.grid{
+        margin-bottom: $gutter-width ;
+      }
+    }
+
+    &.centered{
+      @include get-centered-width( $i );
+    }
+  }
+}
+
+.container{
+  @extend .cf;
+  width: 970px;
+  margin: auto;
+}
+
+
+

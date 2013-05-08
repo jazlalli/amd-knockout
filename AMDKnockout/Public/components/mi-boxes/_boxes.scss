@@ -1,0 +1,29 @@
+.box{
+  @extend .cf;
+
+  padding: 20px 20px;
+  @include border-radius(5px);
+
+  &.bordered{
+    border: 1px solid $box-border-bg;
+  }
+
+  &.square{
+    @include border-radius(0);
+  }
+}
+
+.box-primary{
+  @extend .box;
+  background-color: #fff;
+}
+
+.box-secondary{
+  @extend .box;
+  background-color: $box-secondary-bg;
+}
+
+.box-footer{
+  @extend .box;
+  background-color: $read-more-color;
+}

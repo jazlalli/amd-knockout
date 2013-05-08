@@ -1,0 +1,9 @@
+{
+  "name": "mi-banner",
+  "version": "0.0.0",
+  "commit": "a561876f58a46ea6260681c1bdc415a9c55313db",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.33.10:/home/git/repositories/root/mi-banner.git"
+  }
+}

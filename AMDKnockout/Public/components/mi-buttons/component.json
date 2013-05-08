@@ -1,0 +1,9 @@
+{
+  "name": "mi-buttons",
+  "version": "0.0.0",
+  "commit": "a6aee00ae09d3d82534f68326c210ff129447a75",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.33.10:/home/git/repositories/root/mi-buttons.git"
+  }
+}

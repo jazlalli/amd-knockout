@@ -1,0 +1,9 @@
+{
+  "name": "mi-forms",
+  "version": "0.0.0",
+  "commit": "3a925613c52483b8f050b73f7d80d463e7b7b836",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.33.10:/home/git/repositories/root/mi-forms.git"
+  }
+}

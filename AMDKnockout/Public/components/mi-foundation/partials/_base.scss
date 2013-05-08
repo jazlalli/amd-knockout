@@ -1,0 +1,110 @@
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+.cf {
+  *zoom: 1;
+}
+
+.island{
+  margin-top: $island-padding;
+  margin-bottom: $island-padding / 2;
+}
+
+.islet{
+  margin-top: $islet-padding;
+  margin-bottom: $islet-padding / 2;
+}
+
+.pull-left{
+  float: left;
+}
+
+.pull-right{
+  float: right;
+}
+
+.tcenter{
+   text-align: center;
+}
+.tleft{
+  text-align: left;
+}
+.tright{
+  text-align: right;
+}
+.hidden{
+  display: none;
+}
+
+// GENERAL CLASS MODS
+//  ----------------------- >>
+*{
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+html, body{
+  height: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+b{
+  font-weight: bold;
+}
+
+.capitalize{
+  text-transform: capitalize
+}
+
+//  MIXINS
+//  ----------------------- >>
+@mixin get-font-size( $font-size ){
+  font-size: #{$font-size}px;
+  font-size: #{$font-size/10}rem;
+}
+
+@mixin get-layer( $layer-number ){
+  z-index: 10 * $layer-number;
+}
+
+@mixin get-arrow( $arrow-size: 5px , $arrow-color: #000 , $orientation: left, $vert: 0 , $horiz: 0 ){
+  &:after{
+    content      : ' ';
+
+    position:absolute;
+    top: $vert;
+
+    @if $orientation == left{
+      left: $horiz;
+    }
+    @else{
+      right: $horiz;
+    }
+
+    border-left  : $arrow-size solid transparent;
+    border-right : $arrow-size solid transparent;
+    border-bottom: $arrow-size solid $arrow-color;
+  }
+}
+
+@mixin set-image-holder( $img-data, $width, $height ){
+
+}
+
+
+h1, .h1{
+  @include get-font-size(36);
+}
+
+

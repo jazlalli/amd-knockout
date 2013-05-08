@@ -1,0 +1,27 @@
+.list-styled{
+  li{
+    position:relative;
+
+    padding: 0 0 0 20px;
+
+    @include get-font-size(13);
+    color: #000;
+    line-height: 1.5;
+
+    &:before{
+      content: "■";
+
+      position: absolute;
+      top: -2px;
+      left: 5px;
+
+      color:$highlight-color;
+    }
+  }
+}
+
+.list-spaced{
+  li{
+    padding-bottom: 15px;
+  }
+}

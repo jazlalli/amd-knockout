@@ -1,0 +1,36 @@
+.divider{
+  width: 100%;
+  clear: both;
+  text-align: center;
+  position:relative;
+
+  &:before{
+    content: ' ';
+    display: block;
+
+    @include get-layer(1);
+
+    position:absolute;
+    top: 50%;
+    left: 0;
+
+    height: 0;
+    width: 100%;
+
+    border-top: 1px solid $divider-color;
+  }
+
+  h2{
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+
+    @include get-layer(2);
+
+    background-color: #fff;
+  }
+
+  &.primary{
+    padding: 15px 5px;
+  }
+}

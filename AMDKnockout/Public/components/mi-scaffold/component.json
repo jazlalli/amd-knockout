@@ -1,0 +1,9 @@
+{
+  "name": "mi-scaffold",
+  "version": "0.0.0",
+  "commit": "8ad691f503cbe35c9f0154a1d6e38a2f7901e5b2",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.33.10:/home/git/repositories/root/mi-scaffold.git"
+  }
+}

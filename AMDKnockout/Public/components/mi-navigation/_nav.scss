@@ -1,0 +1,247 @@
+.nav {
+  @extend .cf;
+  li {
+    float: left;
+    position: relative;
+    a {
+      display: block;
+    }
+  }
+}
+
+.nav-primary {
+  padding-top: 10px;
+
+  li {
+    padding: 0 10px;
+  }
+
+  li:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 2px;
+    background-color: $nav-divider-color;
+
+  }
+
+  li:first-child:after {
+    display: none;
+  }
+
+  a {
+    display: block;
+
+    @include get-font-size(17);
+    font-family: $feature-font;
+    color: #000;
+    line-height: 1.5;
+
+    &:hover {
+      border-bottom: 10px solid $header-top-border;
+    }
+  }
+}
+
+$border: 1px solid #ececec;
+$feature-item-width: 90px;
+.nav-secondary-item {
+  position:relative;
+
+  width: $feature-item-width;
+  height: 110px;
+  padding: 10px;
+  @include border-radius(10px);
+
+  margin: 0 2.5px;
+
+  border: $border;
+  border-bottom: none;
+  background-color: $second-nav-item-background;
+  text-align: center;
+}
+
+.nav-secondary-container{
+  position:relative;
+  padding-bottom: 65px;
+
+  @for $i from 1 through 10{
+    &:nth-child(#{$i}){
+      .feature-image{
+        background-position: -#{(($i - 1)*10)}06px -8px;
+      }
+    }
+  }
+}
+
+.feature-label{
+  position:absolute;
+  bottom:0;
+
+  width: 100%;
+  text-align: center;
+
+  @include get-font-size(24);
+  font-family: $feature-font;
+  color:$second-nav-label-color;
+
+}
+
+$image-width: 70px;
+.feature-image {
+  display: block;
+  position: relative;
+
+  width: $image-width;
+  height: $image-width;
+
+  background-image: $second-nav-bg;
+  background-position: -8px -8px;
+
+  border: $border;
+  margin: auto;
+
+  @include border-radius($image-width);
+  @include get-layer(2);
+}
+
+.feature-decription {
+  display: inline-block;
+  position: relative;
+  padding-top: 10px;
+
+  @include get-layer(2);
+  @include get-font-size(12);
+
+  color: $second-nav-description-color;
+}
+
+.feature-arrow {
+  $arrow-width: $image-width - 2px ;
+
+  position: absolute;
+  left: 50%;
+  margin-left:-($arrow-width / 2);
+
+  bottom: -1px;
+  margin-bottom: -($arrow-width / 2) + 10px;
+
+  display: block;
+
+  width:  $arrow-width;
+  height:  $arrow-width;
+
+  @include transform(rotate(45deg));
+  @include border-radius(10px);
+  @include get-layer(1);
+
+  border-right: $border;
+  border-bottom: $border;
+  background-color: $second-nav-item-background;
+}
+.feature-info{
+  position:absolute;
+  bottom: -40px;
+
+
+  display: none;
+
+  padding: 5px 10px;
+
+  background-color: $second-nav-info-color;
+  @include border-radius(3px);
+
+  &.left{
+    @include get-arrow( 10px, $second-nav-info-color, left, -10px, 37px );
+    left: 0;
+  }
+
+  &.right{
+    @include get-arrow( 10px, $second-nav-info-color, right, -10px, 37px );
+    right: 0;
+  }
+
+
+  @include get-font-size(12px);
+  color: #000;
+  white-space: nowrap;
+}
+
+.nav-secondary-container:hover{
+  .nav-secondary-item{
+    background-color: $second-nav-item-hover;
+  }
+
+  .feature-arrow{
+    background-color: $second-nav-item-hover;
+  }
+
+  .feature-decription{
+    color: #fff;
+  }
+
+  .feature-label{
+    color: $second-nav-active-label-color;
+  }
+
+  .feature-info{
+      display: block;
+  }
+
+  &:after{
+    $feature-size: 40px;
+    content : '>';
+    display : inline-block;
+    position: absolute;
+    top : 23px;
+    left: 50%;
+
+    width : $feature-size;
+    height: $feature-size;
+
+    margin-left: -($feature-size / 2) - 2px;
+
+    @include background-image(
+        linear-gradient(to bottom, #fdb941 0%,#fa931f 20%,#f76801 100%)
+    );
+    @include border-radius($feature-size);
+    border: 3px solid #fff;
+
+    @include get-layer(2);
+
+    @include get-font-size(34);
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+
+.nav-footer{
+  li{
+    position:relative;
+
+    padding: 5px;
+    padding-left: 15px;
+
+    &:before{
+      content : ' -';
+      position:absolute;
+      top : 4px;
+      left: 3px;
+      color: #fff;
+      @include get-font-size(14);
+    }
+
+    &:first-child:before{
+      display:none;
+    }
+  }
+  a{
+    disaply:block;
+    @include get-font-size(14);
+    color: #fff;
+  }
+}

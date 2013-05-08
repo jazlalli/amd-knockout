@@ -1,0 +1,135 @@
+@for $header from 1 through 6{
+  h#{$header}{
+    font-family: $feature-font;
+
+    &.title{
+      margin-bottom: 20px;
+    }
+
+    &.bordered{
+      text-decoration: underline;
+    }
+
+    &.unstyled{
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-weight: 300;
+    }
+  }
+}
+
+html, body{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
+
+h1, .h1{
+  @include get-font-size( 48 );
+}
+
+h2, .h2, .bootstrap .accordion-trigger{
+  @include get-font-size( 24 );
+}
+
+h3, .h3{
+  @include get-font-size( 18 );
+}
+
+h4, .h4{
+  @include get-font-size( 16 );
+}
+
+.h1.feature, h1.feature,
+.h2.feature, h2.feature,
+.h3.feature, h3.feature{
+  @include text-shadow($feature-text-shadow);
+}
+
+.h1.feature, h1.feature{
+  color: $feature-text-color;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.h2.feature, h2.feature{
+  color: $sub-feature-text-color;
+}
+
+.h3.feature, h3.feature{
+  color: $sub-feature-text-color;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+
+
+p{
+  @include get-font-size( 14 );
+  line-height: 1.5;
+}
+
+.highlight{
+  color: $highlight-color;
+
+  &.alternate{
+    color: $highlight-alternate-color;
+  }
+}
+
+blockquote{
+  p{
+    padding-left: 30px;
+    position:relative;
+    display: inline;
+
+    @include get-font-size(13);
+    font-style:italic;
+    line-height: 1.5;
+    //word-wrap:break-word
+
+    &:before{
+      content: '"';
+      display: inline-block;
+
+      position:absolute;
+      top  :-5px;
+      left :-5px;
+
+      font-family: $feature-font;
+      @include get-font-size(48);
+      line-height: 1;
+      color: $highlight-color;
+    }
+  }
+  cite{
+    color: $cite-text-color;
+  }
+}
+
+.read-more{
+  position:relative;
+  padding-right: 1em;
+  text-decoration: underline;
+  color: $read-more-color;
+
+  &:hover{
+    color: $read-more-active-color;
+  }
+
+  &:after{
+    content: '>';
+    position: absolute;
+    right: 0;
+  }
+
+  &.unstyled{
+    text-decoration: none;
+  }
+}
+
+.watermark{
+  color: #fff;
+}
+.terms{
+  color: $second-nav-label-color;
+  @include get-font-size(10);
+}

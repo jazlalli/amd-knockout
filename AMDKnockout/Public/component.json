@@ -1,0 +1,16 @@
+{
+  "name": "Public",
+  "version": "0.0.0",
+  "dependencies": {
+    "mi-navigation": "latest",
+    "mi-foundation": "latest",
+    "mi-typography": "latest",
+    "mi-lists": "latest",
+    "mi-forms": "latest",
+    "mi-dividers": "latest",
+    "mi-buttons": "latest",
+    "mi-boxes": "latest",
+    "mi-banner": "latest",
+    "mi-scaffold": "latest"
+  }
+}

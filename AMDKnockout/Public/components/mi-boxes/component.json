@@ -1,0 +1,9 @@
+{
+  "name": "mi-boxes",
+  "version": "0.0.0",
+  "commit": "1d465582c77fd83265f0ec156a21e0ade9dced06",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.33.10:/home/git/repositories/root/mi-boxes.git"
+  }
+}

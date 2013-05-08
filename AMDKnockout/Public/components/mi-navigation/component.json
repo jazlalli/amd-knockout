@@ -1,0 +1,9 @@
+{
+  "name": "mi-navigation",
+  "version": "0.0.0",
+  "commit": "9c28aee11bc8d03893bb01e76ce559a69ca77644",
+  "repository": {
+    "type": "git",
+    "url": "git@192.168.33.10:/home/git/repositories/root/mi-navigation.git"
+  }
+}

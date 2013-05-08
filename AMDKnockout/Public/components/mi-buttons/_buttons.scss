@@ -1,0 +1,45 @@
+.btn{
+  // reset
+  background: none;
+  border: none;
+  width: auto;
+  overflow: visible;
+
+  @include border-radius(8px);
+
+  &:hover{
+    cursor: hand;
+  }
+
+  &.large{
+    padding: 0.3em 0.8em;
+    @include get-font-size( 23 );
+  }
+
+  &.med{
+    padding: 0.15em 0.4em;
+    @include get-font-size( 18 );
+  }
+
+  &.bordered{
+    border: 3px solid #fff;
+  }
+
+  & .icon{
+    margin-left: 0.5em;
+  }
+
+}
+
+.btn-warning{
+  @extend .btn;
+
+
+  @include background-image(
+    linear-gradient(to bottom, #fdb941 0%,#fa931f 20%,#f76801 100%)
+  );
+  @include box-shadow($btn-warning-box-shadow);
+  color: #fff;
+  font-family: $feature-font;
+}
+

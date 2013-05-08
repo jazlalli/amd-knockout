@@ -119,8 +119,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
+    <Content Include="karma.conf.js" />
     <Content Include="Public\script\app.js" />
     <Content Include="Public\script\controllers\CalculatorController.js" />
+    <Content Include="Public\script\controllers\FormController.js" />
     <Content Include="Public\script\controllers\RewardsController.js" />
     <Content Include="Public\script\controllers\CombinedController.js" />
     <Content Include="Public\script\controllers\PoorCreditController.js" />
@@ -152,7 +154,12 @@
     <Content Include="Public\script\vendor\jquery.js" />
     <Content Include="Public\script\vendor\underscore.js" />
     <Content Include="Public\script\viewModels\TableViewModel.js" />
+    <Content Include="Public\script\viewModels\UserViewModel.js" />
     <Content Include="Public\styles\cardstable.css" />
+    <Content Include="Public\test\test-main.js" />
+    <Content Include="Public\test\viewModels\CategoriesViewModelTests.js" />
+    <Content Include="Public\test\viewModels\CalculatorViewModelTests.js" />
+    <Content Include="Public\test\viewModels\TableViewModelTests.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -164,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Public\test\controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -19,7 +19,7 @@
             }
 
             if (options.sortDirection) {
-                this.sortDirection = options.sortDirection;
+                this.sortByDirection = options.sortDirection;
             } else {
                 this.sortByDirection = 'asc';
             }

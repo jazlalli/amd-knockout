@@ -11,7 +11,7 @@
         };
 
         _.extend(CalculatorViewModel.prototype, BaseViewModel.prototype, {
-            initialize: function (options) {
+            initialize: function () {
 
             }
         });

@@ -168,7 +168,6 @@
     <Content Include="Public\stylesheets\ie.css" />
     <Content Include="Public\stylesheets\print.css" />
     <Content Include="Public\stylesheets\screen.css" />
-    <Content Include="Public\styles\cardstable.css" />
     <Content Include="Public\test\test-main.js" />
     <Content Include="Public\test\viewModels\CategoriesViewModelTests.js" />
     <Content Include="Public\test\viewModels\CalculatorViewModelTests.js" />

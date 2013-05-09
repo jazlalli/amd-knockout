@@ -4,34 +4,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <base href="/" />
-    <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.1/cerulean/bootstrap.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="@Url.Content("~/Public/styles/cardstable.css")"/>
+    <link href="https://fonts.googleapis.com/css?family=Copse" rel="stylesheet" type="text/css">
+    <link href="@Url.Content("~/Public/stylesheets/screen.css")" media="screen, projection" rel="stylesheet" type="text/css" />
 
     <script data-main="@Url.Content("~/Public/script/main.js")" src="@Url.Content("~/Public/script/require-jquery.js")"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <a href="#" class="brand">TotallyMoney</a>
-                <ul class="nav pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Link1</a></li>
-                    <li><a href="#">Link2</a></li>
-                </ul>
+    <article class="main col-12">
+        <header class="header cf container">
+            <div class="col-3">
+                <img src="https://s3-eu-west-1.amazonaws.com/tm-header/images/TotallyMoney_Logo.png" alt="logo" width="206" height="54">
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row-fluid">
-            <div class="span12">
-                <h2>Your results</h2>
+        </header>
+        
+        <section class="col-12 cf main-feature">
+            <div class="container">
+                <div class="main-feature-left col-12">
+                    <h1 class="feature">The UKs Top Credit Cards</h1>
+                    <h3 class="feature">We compare over 200 cards from 25 providers including exclusive offers not available anywhere else</h3>
+                </div>
             </div>
-        </div>
-        @RenderBody()
-    </div>
+        </section>
+    
+        <section class="container centered gutted">
+            @RenderBody()
+        </section>
+    </article>
     
 </body>
 <script type="text/javascript">

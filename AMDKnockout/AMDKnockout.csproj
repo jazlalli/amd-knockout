@@ -120,6 +120,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <Content Include="karma.conf.js" />
+    <Content Include="Public\components\mi-banner\.gitignore" />
+    <Content Include="Public\components\mi-foundation\.gitignore" />
+    <Content Include="Public\components\mi-scaffold\.gitignore" />
+    <Content Include="Public\images\banner\hero_background.jpg" />
+    <Content Include="Public\images\header\logo.png" />
+    <Content Include="Public\images\hero_cards.png" />
+    <Content Include="Public\images\mail_hp_g.gif" />
+    <Content Include="Public\images\product_line.png" />
+    <Content Include="Public\images\speech.gif" />
+    <Content Include="Public\images\uk_map_info.gif" />
     <Content Include="Public\script\app.js" />
     <Content Include="Public\script\controllers\CalculatorController.js" />
     <Content Include="Public\script\controllers\FormController.js" />
@@ -155,6 +165,9 @@
     <Content Include="Public\script\vendor\underscore.js" />
     <Content Include="Public\script\viewModels\TableViewModel.js" />
     <Content Include="Public\script\viewModels\UserViewModel.js" />
+    <Content Include="Public\stylesheets\ie.css" />
+    <Content Include="Public\stylesheets\print.css" />
+    <Content Include="Public\stylesheets\screen.css" />
     <Content Include="Public\styles\cardstable.css" />
     <Content Include="Public\test\test-main.js" />
     <Content Include="Public\test\viewModels\CategoriesViewModelTests.js" />
@@ -277,6 +290,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\_Partials\_Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Public\component.json" />
+    <Content Include="Public\components\mi-banner\component.json" />
+    <Content Include="Public\components\mi-banner\README" />
+    <Content Include="Public\components\mi-banner\_banner.scss" />
+    <Content Include="Public\components\mi-boxes\component.json" />
+    <Content Include="Public\components\mi-boxes\_boxes.scss" />
+    <Content Include="Public\components\mi-buttons\component.json" />
+    <Content Include="Public\components\mi-buttons\_buttons.scss" />
+    <Content Include="Public\components\mi-dividers\component.json" />
+    <Content Include="Public\components\mi-dividers\_dividers.scss" />
+    <Content Include="Public\components\mi-forms\component.json" />
+    <Content Include="Public\components\mi-forms\_forms.scss" />
+    <Content Include="Public\components\mi-foundation\component.json" />
+    <Content Include="Public\components\mi-foundation\foundation.scss" />
+    <Content Include="Public\components\mi-foundation\partials\_base.scss" />
+    <Content Include="Public\components\mi-foundation\partials\_palette.scss" />
+    <Content Include="Public\components\mi-foundation\partials\_variables.scss" />
+    <Content Include="Public\components\mi-foundation\README.md" />
+    <Content Include="Public\components\mi-lists\component.json" />
+    <Content Include="Public\components\mi-lists\_lists.scss" />
+    <Content Include="Public\components\mi-navigation\component.json" />
+    <Content Include="Public\components\mi-navigation\_nav.scss" />
+    <Content Include="Public\components\mi-scaffold\component.json" />
+    <Content Include="Public\components\mi-scaffold\README" />
+    <Content Include="Public\components\mi-scaffold\_scaffold.scss" />
+    <Content Include="Public\components\mi-typography\component.json" />
+    <Content Include="Public\components\mi-typography\README" />
+    <Content Include="Public\components\mi-typography\_type.scss" />
+    <Content Include="Public\config.rb" />
+    <Content Include="Public\sass\ie.scss" />
+    <Content Include="Public\sass\print.scss" />
+    <Content Include="Public\sass\screen.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

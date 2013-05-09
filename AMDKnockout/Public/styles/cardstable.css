@@ -18,28 +18,3 @@ thead.col-xlarge {
     width: 25%;
 }
 
-.badge {
-    -webkit-border-radius: 999px;
-    -moz-border-radius: 999px;
-    border-radius: 999px;
-    width: 36px;
-    height: 36px;
-    padding: 8px;
-    margin: 3px;
-    background: #07435B;
-    border: 1px solid #eee;
-    color: #fff;
-    text-align: center;
-    font: 32px Arial, sans-serif;
-    top: 25px;
-    right: 25px;
-    position: absolute;
-    z-index: 999px;
-    text-decoration: none;
-}
-
-.badge:hover {
-    border: 1px solid #ff5a00;
-    background-color: #ff5a00;
-    color: #ff5a00;
-}

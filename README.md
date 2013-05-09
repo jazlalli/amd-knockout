@@ -1,5 +1,4 @@
 # amd-knockout
-==============
 
 Example app built using Knockout.js, AMD, postal.js pub/sub and pager.js SPA framework for handling routing and History API integration.
 

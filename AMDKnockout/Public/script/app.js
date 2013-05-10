@@ -91,7 +91,7 @@
             
             ready: function () {
                 messageBus.app.publish('ready');
-                $("#viewMain").css({ visibility: 'visible' });
+                $(".content-main").css({ visibility: 'visible' });
             }
         });
 

@@ -130,6 +130,9 @@
     <Content Include="Public\images\product_line.png" />
     <Content Include="Public\images\speech.gif" />
     <Content Include="Public\images\uk_map_info.gif" />
+    <Content Include="Public\sass\screen.css">
+      <DependentUpon>screen.scss</DependentUpon>
+    </Content>
     <Content Include="Public\script\app.js" />
     <Content Include="Public\script\controllers\CalculatorController.js" />
     <Content Include="Public\script\controllers\FormController.js" />
@@ -323,6 +326,15 @@
     <Content Include="Public\sass\ie.scss" />
     <Content Include="Public\sass\print.scss" />
     <Content Include="Public\sass\screen.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Public\sass\_partials\_menu.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Public\sass\_partials\_calculator.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Public\sass\_partials\_table.scss" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

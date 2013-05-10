@@ -1,0 +1,66 @@
+.calculator {
+	margin-right: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
+}
+
+.calculator-header {
+	padding: 10px;
+	background-color: #eee;
+	border-bottom: 1px solid #ddd;
+}
+
+.calculator-body {
+	padding: 10px;
+}
+
+.question {
+	float: left;
+	padding-top: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 0.8em;
+	font-weight: bold;
+}
+
+.slider-value {
+	font-size: 0.8em;
+	float: right;
+	margin-top: 10px;
+	padding: 3px;
+	border: 1px solid #287f9e;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.radio-inline {
+	font-size: 0.8em;
+	margin-top: 10px;
+
+	input {
+	}
+
+	label {
+		padding-top: 5px;
+		font-style: italic;
+	}
+}
+
+.radio-inline input {
+	min-width: 20px;
+}
+
+.calculator .btn-warning {
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.calculator .btn-warning:hover {
+	background-color: #29ade3;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0f7bb5), to(#029ad8));
+	background-image: -webkit-linear-gradient(top, #0f7bb5, #029ad8);
+	background-image: -moz-linear-gradient(top, #0f7bb5, #029ad8);
+	background-image: -ms-linear-gradient(top, #0f7bb5, #029ad8);
+	background-image: -o-linear-gradient(top, #0f7bb5, #029ad8);
+}

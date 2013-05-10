@@ -1,0 +1,164 @@
+.table-header {
+	background-color: #eee;
+	text-align: center;
+	border: 1px solid #ddd;
+
+	a {
+		display: block;
+		font-size: 13px;
+		padding-top: 30px;
+		padding-bottom: 5px;
+		text-decoration: none;
+		color: #333;	
+	}
+}
+
+.table-header {
+	.sortable {
+		color: #3e85a0;
+		position: relative;
+
+		&:hover{
+			color: #fff;
+			background-color: #5fa3bb;
+			
+			&:before {
+				content: attr(data-hover);
+				font-size: 11px;
+				color: #fff;
+				display: block;
+				position: absolute;
+				top: 10px;
+				left: 25%;
+				right: 25%;
+			}
+		}
+	}
+
+	.active{
+		background-color: #24728f;
+		color: #fff;
+		position: relative;
+
+		&:before {
+			content: attr(data-active);
+			font-size: 11px;
+			color: #fff;
+			position: absolute;
+			top: 10px;
+			left: 25%;
+			right: 25%;
+		}
+
+		&:after {
+			content: ''; 
+			position: absolute;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid #24728f;
+			bottom: -10px;
+			left: 45%;
+		}
+
+		&:hover {
+			background-color: #24728f;
+			color: #fff;	
+
+			&:before {
+				content: attr(data-active);
+			}
+		}
+	}
+}
+
+.card-row {
+	color: #444;
+	padding-top: 10px;
+	padding-left: 10px;
+	border-bottom: 1px solid #ddd;
+
+	&:hover {
+		background-color: #ECF5F9;
+	}
+}
+
+.card-details {
+	position: relative;
+	text-align: center;
+	padding: 15px 0;
+	border-left: 1px solid #ddd;
+
+	&:last-child {
+		border-left: none;
+	}
+}
+
+.card-bullets {
+	font-size: 0.8em;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: -10px;
+	line-height: 1.4em;
+
+	ul {
+		list-style-type: disc;
+	}
+}
+
+.badge {
+	position: absolute;
+	display: block;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto 0 auto;
+    background: #3e85a0;
+    color: #fff;
+    font-family: Copse,sans-serif;
+	font-size: 42px;
+	font-weight: bold;
+	text-align: center;
+    top: -10px;
+    left: 25%;
+    right: 25%;
+    z-index: 999px;
+    text-decoration: none;
+	overflow: hidden;
+	border: 2px solid #eee;
+	-webkit-border-radius: 999px;
+    -moz-border-radius: 999px;
+    border-radius: 999px;
+	-webkit-box-shadow: 0 0 3px 3px #dddddd;
+	-moz-box-shadow: 0 0 3px 3px #dddddd;	
+	box-shadow: 0 0 3px 3px #dddddd;
+
+	&:hover {
+		background-color: #ff5a00;
+	}
+}
+
+.applynow {
+	padding-top: 10px;
+	padding-right: 5px;
+	text-align: right;
+
+	.btn-warning {
+		cursor: pointer;
+
+		&:hover {
+			background-color: #29ade3;
+			background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0f7bb5), to(#029ad8));
+			background-image: -webkit-linear-gradient(top, #0f7bb5, #029ad8);
+			background-image: -moz-linear-gradient(top, #0f7bb5, #029ad8);
+			background-image: -ms-linear-gradient(top, #0f7bb5, #029ad8);
+			background-image: -o-linear-gradient(top, #0f7bb5, #029ad8);
+		}
+	}
+}
+
+.representative {
+	font-size: 0.8em;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	color: #666;
+	text-align: center;
+}

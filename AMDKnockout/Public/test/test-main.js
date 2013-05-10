@@ -1,4 +1,5 @@
 var tests = [];
+
 for (var file in window.__karma__.files) {
     if (/Tests\.js$/.test(file)) {
         tests.push(file);

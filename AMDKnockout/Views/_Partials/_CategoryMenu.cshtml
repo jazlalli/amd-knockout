@@ -1,7 +1,8 @@
-﻿<div data-bind="with: Categories">
-    <ul class="nav nav-tabs nav-stacked" data-bind="foreach: category">
-        <li>
-            <a data-bind="text: Text, page-href: '../' + Name(), css: { 'active': Selected }"></a>
+﻿<div class="menu" data-bind="with: Categories">
+    <h3 class="menu-header">Card Types</h3>
+    <ul class="menu-body" data-bind="foreach: category">
+        <li data-bind="css: { 'active': Selected }">
+            <a data-bind="text: Text, page-href: '../' + Name()"></a>
         </li>
     </ul>
 </div>

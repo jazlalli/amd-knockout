@@ -1,32 +1,37 @@
-﻿<tr>
-    <td style="min-width: 200px; max-width: 200px;">
+﻿<article class="col-12 card-row">
+    <div class="col-12">
         <p><small><b data-bind="text: Name"></b></small></p>
-        <img data-bind="attr:{src:ImageUrl, alt:Name}" width="109" />
-    </td>
-    <td style="min-width: 130px; max-width: 130px;">
-        <p data-bind="text: BalanceTransferText"></p>
-    </td>
-    <td style="min-width: 80px; max-width: 80px;">
-        <p data-bind="text: IntroBalanceTfrFee + '% fee'"></p>
-    </td>
-    <td style="text-align: center;">
-        <p><b data-bind="text: SavingAmount() > 0 ? '£' + SavingAmount() : '--'"></b></p>
-    </td>
-    <td style="position: relative;">
-        <div class="badge">
-            <a data-bind="page-href: 'Form', text: Score() > 0 ? Score() : '?'"></a>
+    </div>
+    
+    <div class="col-6">
+        <div class="col-4">
+            <img data-bind="attr:{src:ImageUrl, alt:Name}" width="109" />
         </div>
-    </td>
-    <td style="padding-top: 45px;">
-        <a class="btn btn-warning">Apply Now</a>
-    </td>
-</tr>
-<tr>
-    <td colspan="8">
-        <small>
+        <div class="col-8 card-details">
+            <p data-bind="text: BalanceTransferText"></p>
+        </div>
+    </div>
+    <div class="col-2 card-details">
+        <p data-bind="text: IntroBalanceTfrFee + '% fee'"></p>
+    </div>
+    <div class="col-2 card-details">
+        <p><b data-bind="text: SavingAmount() > 0 ? '£' + SavingAmount() : '--'"></b></p>
+    </div>
+    <div class="col-2 card-details">
+        <p>
+            &nbsp;
+            <a class="badge" data-bind="page-href: 'Form', text: Score() > 0 ? Score() : '?'"></a>
+        </p>
+    </div>
+    <div class="col-12">
+        <div class="col-9 representative">
             <b>Representative Example: </b>If you spend &#163;<span data-bind="text: RepresentativeExampleCreditLimit"></span> at a purchase interest rate of
             <span data-bind="text: RepresentativeAPR"></span>% (variable) your Representative APR will be <span data-bind="text: BalanceTransferAER"></span>% (variable)
             @*<span data-bind="visible: AnnualFee() > 0">with an annual fee of &#163;<span data-bind="text: AnnualFee"></span></span>.*@
-        </small>
-    </td>
-</tr>
+        </div>
+        
+        <div class="col-3 applynow">
+            <a class="btn btn-warning med bordered applynow">Apply Now</a>
+        </div>
+    </div>
+</article>

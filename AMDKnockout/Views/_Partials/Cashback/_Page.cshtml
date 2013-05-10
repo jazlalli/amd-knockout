@@ -1,17 +1,17 @@
-﻿<div class="row-fluid" data-bind="with: Cashback">
+﻿<div data-bind="with: Cashback">
 
-    <div class="span12" data-bind="page: {id: 'Form', fx: 'slide'}">
+    <div data-bind="page: {id: 'Form', fx: 'slide'}">
         @Html.Partial(Url.Content("~/Views/_Partials/_Form.cshtml"))
     </div>
 
-    <div class="row-fluid">
-        <div class="span3" style="margin-top: 35px;">
+    <div>
+        <div class="col-3">
             @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
 
             @Html.Partial(Url.Content("~/Views/_Partials/Cashback/_Calculator.cshtml"))
         </div>
 
-        <div class="span9">
+        <div class="col-9">
             @Html.Partial(Url.Content("~/Views/_Partials/Cashback/_Table.cshtml"))
         </div>
     </div>

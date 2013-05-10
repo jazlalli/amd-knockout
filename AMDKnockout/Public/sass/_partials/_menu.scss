@@ -1,0 +1,40 @@
+.menu {
+	margin-right: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #ddd;
+}
+
+.menu-header {
+	padding: 10px;
+	background-color: #eee;
+	border-bottom: 1px solid #ddd;
+}
+
+.menu-body {
+	font-size: 0.8em;
+	list-style: none;
+}
+
+.menu-body li {
+	border-bottom: 1px solid #ddd;
+}
+
+.menu-body li:last-child {
+	border-bottom: none;
+}
+
+.menu-body li a {
+	display: block;
+	padding: 10px;
+	color: #222;
+	text-decoration: none;
+}
+
+.menu-body li:hover {
+	background-color: #eee;
+}
+
+.menu-body li.active {
+	background-color: #c6e5ef;
+	font-weight: bold;
+}

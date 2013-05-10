@@ -1,60 +1,101 @@
-﻿<div class="row-fluid" data-bind="with: $root.Form">
+﻿<div class="main-feature-content box col-12" data-bind="with: $root.Form">
     <form>
         <fieldset>
-            <div class="row-fluid">
-                <div class="span12">
-                    <legend>Find out your eligibility</legend>
+            <legend class="col-12">Find the credit cards you're most likely to get accepted for</legend>
+
+            <ul class="col-5 form-list">
+                <li>70% of card applications are rejected. Fill out this form to see your eligibility before applying</li>
+                <li>We'll do a soft search on your credit file</li>
+                <li>It's free, secure and only takes 2 minutes</li>
+            </ul>
+
+            <div class="col-7">
+                <div class="col-12">
+                    <div class="col-3">
+                        <label>Title</label>
+                    </div>
+                    <div class="col-4">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-4">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-3">
+                        <select>
+                            <option>Mr</option>
+                            <option>Mrs</option>
+                            <option>Miss</option>
+                            <option>Ms</option>
+                            <option>Dr</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" placeholder="First Name" data-bind="value: firstName">
+                    </div>
+                    <div class="col-4">
+                        <input type="text" placeholder="Last Name" data-bind="value: lastName">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row-fluid">
-                <div class="span4">
-                    <label>First Name</label>
-                    <input type="text" placeholder="First Name" data-bind="value: firstName">
 
-                    <label>Last Name</label>
-                    <input type="text" placeholder="Last Name" data-bind="value: lastName">
-
-                    <label>Date of Birth</label>
-                    <input class="input-mini" type="text" placeholder="dd" data-bind="value: dobDate">
-                    <input class="input-mini" type="text" placeholder="mm" data-bind="value: dobMonth">
-                    <input class="input-mini" type="text" placeholder="yyyy" data-bind="value: dobYear">
+                <div class="col-12">
+                    <div class="col-12">
+                        <label>Date of Birth</label>
+                    </div>
+                    <div class="col-12">
+                        <input class="col-4 input-medium" type="text" placeholder="dd" data-bind="value: dobDate">
+                        <input class="col-4 input-medium" type="text" placeholder="mm" data-bind="value: dobMonth">
+                        <input class="col-4 input-medium" type="text" placeholder="yyyy" data-bind="value: dobYear">
+                    </div>
                 </div>
 
-                <div class="span4">
-                    <label>Address</label>
-                    <input class="input-medium" type="text" placeholder="House Name / No" data-bind="value: house">
-                    <input class="input-small" type="text" placeholder="Postcode" data-bind="value: postcode">
+                <div class="col-12">
+                    <div class="col-6">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-6">
+                        <label>Time at Address</label>
+                    </div>
 
-                    <label>Time at Address</label>
-                    <input class="input-small" type="text" placeholder="Years" data-bind="value: timeAtAddressYears">
-                    <input class="input-small" type="text" placeholder="Months" data-bind="value: timeAtAddressMonths">
+                    <div class="col-6">
+                        <input class="col-6 input-medium" type="text" placeholder="House Name / No" data-bind="value: house">
+                        <input class="col-6 input-medium" type="text" placeholder="Postcode" data-bind="value: postcode">
+                    </div>
+
+                    <div class="col-6">
+                        <input class="col-6 input-small" type="text" placeholder="Years" data-bind="value: timeAtAddressYears">
+                        <input class="col-6 input-small" type="text" placeholder="Months" data-bind="value: timeAtAddressMonths">
+                    </div>
                 </div>
 
-                <div class="span4">
-                    <label>Annual Income</label>
-                    <div class="input-prepend">
-                        <span class="add-on">£</span>
+                <div class="col-12">
+                    <div class="col-6">
+                        <label>Annual Income</label>
+                    </div>
+                    <div class="col-6">
+                        <label>Bank / Building Society</label>
+                    </div>
+
+                    <div class="col-6 input-prepend">
                         <input type="text" placeholder="e.g. 15000" data-bind="value: annualIncome">
                     </div>
 
-                    <label>Bank / Building Society</label>
-                    <select>
-                        <option>HSBC</option>
-                        <option>Barclays</option>
-                        <option>Santander</option>
-                        <option>First Direct</option>
-                        <option>Natwest</option>
-                        <option>Nationwide</option>
-                        <option>Alliance & Leicester</option>
-                    </select>
+                    <div class="col-6">
+                        <select>
+                            <option>HSBC</option>
+                            <option>Barclays</option>
+                            <option>Santander</option>
+                            <option>First Direct</option>
+                            <option>Natwest</option>
+                            <option>Nationwide</option>
+                            <option>Alliance & Leicester</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="row-fluid">
-                <div class="span12">
-                    <a class="btn btn-large btn-warning pull-right" style="margin-left: 10px;">Find Cards</a>
-                    <a class="btn btn-large btn-inverse pull-right" data-bind="page-href: '../'">Go Back</a>
+
+                <div class="col-12">
+                    <a class="btn btn-warning large pull-right" style="margin-left: 10px;">Find Cards</a>
+                    <a class="btn large pull-right" data-bind="page-href: '../'">Go Back</a>
                 </div>
             </div>
         </fieldset>

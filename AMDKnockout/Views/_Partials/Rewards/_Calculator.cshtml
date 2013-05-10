@@ -1,11 +1,20 @@
-﻿ <div id="rewardsCalculator" class="well" style="padding-bottom: 50px" data-bind="with: Calculator">
-    <h5>Monthly Spend:</h5>
-    <div style="margin-bottom: 10px;">
-        <label for="monthlySpend" data-bind="text: monthlySpend"></label>
-        <input id="monthlySpend" name="monthlySpend" type="range" min="0" max="5000" data-bind="value: monthlySpend">
-        <i class="icon-info-sign" data-toggle="tooltip"
-            title="How much do you plan to spend in the average month?"></i>
+﻿<div class="calculator" data-bind="with: Calculator">
+    <div class="calculator-header col-12">
+        <h3>Your Spending</h3>
     </div>
-
-    <a href="#" class="btn btn-warning pull-right" data-bind="click: App.Rewards.updateSavings"><span>Update</span><span> ›</span></a>
+    <div class="calculator-body">
+        <div class="col-12">
+            <div class="question col-9">Monthly Spend:</div>
+        
+            <label class="slider-value col-3" for="monthlySpend" data-bind="text: '£' + monthlySpend()"></label>
+            <input class="col-12" id="monthlySpend" name="monthlySpend" type="range" min="0" max="5000" data-bind="value: monthlySpend">
+            
+            <i class="icon-info-sign" data-toggle="tooltip"
+               title="How much do you plan to spend in the average month?"></i>
+        </div>
+        
+        <button class="btn btn-warning med bordered" data-bind="click: App.Rewards.updateSavings">
+            Update<i class="icon"> &gt; </i>
+        </button>
+    </div>
 </div>

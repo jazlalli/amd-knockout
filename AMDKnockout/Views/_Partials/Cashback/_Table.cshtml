@@ -1,20 +1,25 @@
-﻿<table class="table table-hover" data-bind="with: Table">
-    <thead>
-        <tr class="table-row">
-            <th class="col-large"></th>
-            <th class="col-medium">
+﻿<div data-bind="with: Table">
+    <div class="col-12 table-header">
+        <div class="col-8">
+            <div class="col-4">&nbsp;</div>
+            <div class="col-8">
                 <a href="#">Offer Details</a>
-            </th>
-            <th class="col-small" data-bind="click: App.Cashback.sortBySavings">
-                <a href="#">Savings</a>
-            </th>
-            <th class="col-small" data-bind="click: App.Cashback.sortByEligibility">
-                <a href="#">Eligibility</a>
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: cards">
+            </div>
+        </div>
+        <div class="col-2">
+            <a href="#" class="sortable"
+                data-active="SORTED BY"
+                data-hover="SORT BY"
+                data-bind="click: App.Cashback.sortBySavings, css: {active: sortBy() === 'SavingAmount'}">Cashback Earned</a>
+        </div>
+        <div class="col-2">
+            <a href="#"
+                data-active="SORTED BY"
+                data-hover="SORT BY"
+                data-bind="click: App.Cashback.sortByEligibility">Your Eligibility</a>
+        </div>
+    </div>
+    <div data-bind="foreach: cards">
         @Html.Partial(Url.Content("~/Views/_Partials/Cashback/_TableRow.cshtml"))
-    </tbody>
-</table>
+    </div>
+</div>

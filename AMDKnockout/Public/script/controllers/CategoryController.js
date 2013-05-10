@@ -37,9 +37,11 @@
             },
 
             setSelectedCategory: function (category) {
+                console.log('weef4frfgttthjkjkioiiok');
+
                 messageBus.data.publish({
-                    topic: 'category.changed',
-                    data: category.Name()
+                    topic: category + '.savings.update',
+                    data: self
                 });
             }
         });

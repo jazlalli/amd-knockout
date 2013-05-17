@@ -1,12 +1,14 @@
 define(function(require) {
-    'use strict';
+    "use strict";
 
     requirejs.config({
         shim: {
             underscore: { exports: "_" },
             bootstrap: { exports: "bootstrap" },
             pager: { exports: "pager", deps: ["knockout", "underscore", "history"] },
-            history: { exports: "history", deps: ["jquery"] }
+            history: { exports: "history", deps: ["jquery"] },
+            jqueryui: { deps: ["jquery"] },
+            knockoutvalidation: { deps: ["knockout"] }
         },
         packages: [
             {
@@ -15,9 +17,19 @@ define(function(require) {
                 main: "jquery.js"
             },
             {
+                name: "jqueryui",
+                location: "/Public/script/vendor",
+                main: "jquery-ui-1.10.2.custom.min.js"
+            },
+            {
                 name: "knockout",
                 location: "/Public/script/vendor",
                 main: "knockout.js"
+            },
+            {
+                name: "knockoutvalidation",
+                location: "/Public/script/vendor",
+                main: "knockout-validation.js"
             },
             {
                 name: "underscore",
@@ -42,7 +54,7 @@ define(function(require) {
             {
                 name: "history",
                 location: "/Public/script/vendor",
-                main: 'jquery.history.js'
+                main: "jquery.history.js"
             },
             {
                 name: "extensions",
@@ -57,7 +69,7 @@ define(function(require) {
         ]
     });
 
-    require(['app', 'extensions'], function (App) {
+    require(["app", "extensions"], function (App) {
         var path = window.location.pathname.substr(1, window.location.pathname.length);
 
         window.App = new App();

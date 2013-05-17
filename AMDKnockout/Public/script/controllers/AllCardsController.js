@@ -1,8 +1,9 @@
 ﻿define(['pager',
         'controllers/CategoryController',
         'controllers/TableController',
+        'controllers/FormController',
         'shared/messageBus'],
-    function(pager, CategoryController, TableController, messageBus) {
+    function(pager, CategoryController, TableController, FormController, messageBus) {
 
         var AllCardsController = function () {
             var self = this;

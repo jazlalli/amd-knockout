@@ -1,8 +1,11 @@
-﻿define(['knockout',
+﻿define(['jquery',
+        'knockout',
         'underscore',
         'viewModels/UserViewModel',
-        'shared/messageBus'],
-    function (ko, _, UserViewModel, messageBus) {
+        'shared/messageBus',
+        'jqueryui',
+        'knockoutvalidation'],
+    function ($, ko, _, UserViewModel, messageBus) {
 
         var FormController = function () {
             var self = this;
@@ -15,15 +18,41 @@
                 var self = this;
 
                 self.viewModel = new UserViewModel();
-                self.setupSubscriptions.call(self);
+                self.$formContainer = $(".form-container");
+                
+                self.$formContainer.dialog({
+                    autoOpen: false,
+                    modal: true,
+                    resizable: false,
+                    width: 960,
+                    position: ['middle', 40],
+                    show: {
+                        effect: "fade",
+                        duration: 250
+                    },
+                    hide: {
+                        effect: "explode",
+                        duration: 250
+                    }
+                });
             },
             
-            setupSubscriptions: function () {
+            openForm: function (data, e) {
+                App.Form.$formContainer.dialog('open');
+                e.preventDefault();
+            },
+            
+            submit: function () {
                 var self = this;
 
-                messageBus.data.subscribe('', function (data) {
-                    
-                });
+                console.log('submitted form');
+
+                if (self.Form.isValid()) {
+                    alert('shimmy shimmy yah shimmy yam shimmy yay');
+                    App.Form.$formContainer.dialog('close');
+                } else {
+                    return self.Form.isValid();
+                }
             }
         });
 

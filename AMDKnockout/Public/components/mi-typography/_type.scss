@@ -23,7 +23,7 @@ html, body{
 }
 
 h1, .h1{
-  @include get-font-size( 48 );
+  @include get-font-size( 38 );
 }
 
 h2, .h2, .bootstrap .accordion-trigger{

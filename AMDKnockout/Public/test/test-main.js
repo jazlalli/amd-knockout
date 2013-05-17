@@ -14,6 +14,7 @@ requirejs.config({
         require: "require-jquery",
         jquery: "vendor/jquery",
         knockout: "vendor/knockout",
+        knockoutvalidation: "vendor/knockout-validation",
         underscore: "vendor/underscore",
         postal: "vendor/postal",
         pager: "vendor/pager",
@@ -25,7 +26,8 @@ requirejs.config({
         underscore: { exports: "_" },
         bootstrap: { exports: "bootstrap" },
         pager: { exports: "pager", deps: ["knockout", "underscore", "history"] },
-        history: { exports: "history", deps: ["jquery"] }
+        history: { exports: "history", deps: ["jquery"] },
+        knockoutvalidation: { deps: ["knockout"] }
     },
 
     // ask Require.js to load these files (all our tests)

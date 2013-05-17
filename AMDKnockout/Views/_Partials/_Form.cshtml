@@ -1,103 +1,147 @@
-﻿<div class="main-feature-content box col-12" data-bind="with: $root.Form">
-    <form>
-        <fieldset>
-            <legend class="col-12">Find the credit cards you're most likely to get accepted for</legend>
+﻿<ul class="col-12 form-list">
+    <li><b>70% of card applications are rejected</b> - last year alone, 5 million applications were unsuccessful.</li>
+    <li><b>A rejected application can have a negative impact on your credit score</b> and affect your ability to borrow in the future.</li>
+    <li><b>Protect your credit score</b> by finding out <b>which cards are likely to accept you</b>. It's fast, free, secure and <b>won't affect your credit rating.</b></li>
+</ul>
 
-            <ul class="col-5 form-list">
-                <li>70% of card applications are rejected. Fill out this form to see your eligibility before applying</li>
-                <li>We'll do a soft search on your credit file</li>
-                <li>It's free, secure and only takes 2 minutes</li>
-            </ul>
+<div class="col-12">
+    <h2>Fill out the form and find out your likelihood of acceptance before applying</h2>
+</div>
 
-            <div class="col-7">
-                <div class="col-12">
-                    <div class="col-3">
-                        <label>Title</label>
-                    </div>
-                    <div class="col-4">
-                        <label>First Name</label>
-                    </div>
-                    <div class="col-4">
-                        <label>Last Name</label>
-                    </div>
-                    <div class="col-3">
-                        <select>
-                            <option>Mr</option>
-                            <option>Mrs</option>
-                            <option>Miss</option>
-                            <option>Ms</option>
-                            <option>Dr</option>
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <input type="text" placeholder="First Name" data-bind="value: firstName">
-                    </div>
-                    <div class="col-4">
-                        <input type="text" placeholder="Last Name" data-bind="value: lastName">
-                    </div>
+<form class="col-12" data-bind="with: Form, submit: App.Form.submit">
+    <div class="col-12">
+        <div class="col-4">
+            <div class="col-3">
+                <label>Title</label>
+            </div>
+            <div class="col-4">
+                <label>First Name</label>
+            </div>
+            <div class="col-4">
+                <label>Last Name</label>
+            </div>
+
+            <div class="col-3">
+                <select class="input-mini">
+                    <option>Mr</option>
+                    <option>Mrs</option>
+                    <option>Miss</option>
+                    <option>Ms</option>
+                    <option>Dr</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <input type="text" data-bind="value: firstName" data-validation-message="blah blah blah">
+            </div>
+            <div class="col-4">
+                <input type="text" data-bind="value: lastName" data-validation-message="This field is required">
+            </div>
+
+            <div class="col-12">
+                <label>Date of Birth</label>
+            </div>
+
+            <div class="col-12">
+                <div class="col-3">
+                    <input class="input-mini" type="text" placeholder="dd" data-bind="value: dobDate">
                 </div>
-
-
-                <div class="col-12">
-                    <div class="col-12">
-                        <label>Date of Birth</label>
-                    </div>
-                    <div class="col-12">
-                        <input class="col-4 input-medium" type="text" placeholder="dd" data-bind="value: dobDate">
-                        <input class="col-4 input-medium" type="text" placeholder="mm" data-bind="value: dobMonth">
-                        <input class="col-4 input-medium" type="text" placeholder="yyyy" data-bind="value: dobYear">
-                    </div>
+                <div class="col-4">
+                    <input type="text" placeholder="mm" data-bind="value: dobMonth">
                 </div>
-
-                <div class="col-12">
-                    <div class="col-6">
-                        <label>Address</label>
-                    </div>
-                    <div class="col-6">
-                        <label>Time at Address</label>
-                    </div>
-
-                    <div class="col-6">
-                        <input class="col-6 input-medium" type="text" placeholder="House Name / No" data-bind="value: house">
-                        <input class="col-6 input-medium" type="text" placeholder="Postcode" data-bind="value: postcode">
-                    </div>
-
-                    <div class="col-6">
-                        <input class="col-6 input-small" type="text" placeholder="Years" data-bind="value: timeAtAddressYears">
-                        <input class="col-6 input-small" type="text" placeholder="Months" data-bind="value: timeAtAddressMonths">
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="col-6">
-                        <label>Annual Income</label>
-                    </div>
-                    <div class="col-6">
-                        <label>Bank / Building Society</label>
-                    </div>
-
-                    <div class="col-6 input-prepend">
-                        <input type="text" placeholder="e.g. 15000" data-bind="value: annualIncome">
-                    </div>
-
-                    <div class="col-6">
-                        <select>
-                            <option>HSBC</option>
-                            <option>Barclays</option>
-                            <option>Santander</option>
-                            <option>First Direct</option>
-                            <option>Natwest</option>
-                            <option>Nationwide</option>
-                            <option>Alliance & Leicester</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <a class="btn btn-warning large pull-right" style="margin-left: 10px;">Find Cards</a>
-                    <a class="btn large pull-right" data-bind="page-href: '../'">Go Back</a>
+                <div class="col-4">
+                    <input type="text" placeholder="yyyy" data-bind="value: dobYear">
                 </div>
             </div>
-        </fieldset>
-    </form>
-</div>
+        </div>
+
+        <div class="col-4">
+            <div class="col-6">
+                <label>Residential Status</label>
+            </div>
+            <div class="col-6">
+                <label>House name/no</label>
+            </div>
+            <div class="col-6">
+                <select class="input-large">
+                    <option>Homeowner</option>
+                    <option>Private Tenant</option>
+                    <option>Council Tenant</option>
+                    <option>Living with Parents</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <input class="input-large" type="text" data-bind="value: house">
+            </div>
+
+            <div class="col-5">
+                <label>Postcode</label>
+            </div>
+            <div class="col-7">
+                <label>Time at current address</label>
+            </div>
+            <div class="col-5">
+                <input class="" type="text" data-bind="value: postcode" />
+            </div>
+            <div class="col-7">
+                <input class="input-mini" type="text" placeholder="Years" data-bind="value: timeAtAddressYears">
+                <input class="input-mini" type="text" placeholder="Months" data-bind="value: timeAtAddressMonths">
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="col-6">
+                <label>Employment status</label>
+            </div>
+            <div class="col-6">
+                <label>Annual Income</label>
+            </div>
+
+            <div class="col-6">
+                <select class="input-large">
+                    <option>Full time</option>
+                    <option>Self employed</option>
+                    <option>Part time</option>
+                    <option>Homemaker</option>
+                    <option>Retired</option>
+                    <option>Student</option>
+                    <option>Unemployed</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <input type="text" placeholder="e.g. 15000" data-bind="value: annualIncome">
+            </div>
+
+            <div class="col-12">
+                <label>Bank / Building Society</label>
+            </div>
+            <div class="col-12">
+                <select class="input-xlarge">
+                    <option>HSBC</option>
+                    <option>Barclays</option>
+                    <option>Santander</option>
+                    <option>First Direct</option>
+                    <option>Natwest</option>
+                    <option>Nationwide</option>
+                    <option>Alliance & Leicester</option>
+                    <option>Sharky the Shark</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-12 form-footer">
+            <div class="col-4">
+                <p class="legal">
+                    By clicking 'Get your results' you are agreeing with our 
+                    <a href="http://www.totallymoney.com/info/creditcards-terms-and-conditions/" target="_blank">Terms and Conditions
+                    </a>
+                    and 
+                    <a href="http://www.totallymoney.com/info/privacy-policy/" target="_blank">Privacy Policy
+                    </a>
+                </p>
+            </div>
+            <div class="col-8">
+                <button class="btn btn-warning bordered large pull-right applynow" type="submit">Get Your Results</button>
+            </div>
+        </div>
+    </div>
+</form>

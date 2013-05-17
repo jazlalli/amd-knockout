@@ -1,22 +1,23 @@
 ﻿define(["knockout",
         "underscore",
-        "viewModels/BaseViewModel"],
+        "viewModels/BaseViewModel",
+        "knockoutvalidation"],
     function (ko, _, BaseViewModel) {
         'use strict';
 
         var UserViewModel = function () {
-            this.firstName = 'Multi';
-            this.lastName = 'Balance';
-            this.dobDate = 6;
-            this.dobMonth = 9;
-            this.dobYear = 1969;
+            this.firstName = null;
+            this.lastName = null;
+            this.dobDate = null;
+            this.dobMonth = null;
+            this.dobYear = null;
 
-            this.house = '1';
-            this.postcode = 'SW1A 1AA';
-            this.timeAtAddressYears = 15;
-            this.timeAtAddressMonths = 10;
+            this.house = null;
+            this.postcode = null;
+            this.timeAtAddressYears = null;
+            this.timeAtAddressMonths = null;
 
-            this.annualIncome = 12;
+            this.annualIncome = null;
             this.bank = null;
 
             BaseViewModel.apply(this, arguments);
@@ -24,6 +25,31 @@
 
         _.extend(UserViewModel.prototype, BaseViewModel.prototype, {
             initialize: function () {
+                var self = this;
+
+                ko.validation.configure({
+                    registerExtenders: true,
+                    messagesOnModified: false,
+                    insertMessages: true,
+                    parseInputAttributes: true
+                });
+
+                ko.validation.init();
+
+                self.firstName.extend({ required: true });
+                self.lastName.extend({ required: true });
+                //self.dobDate.extend({ required: true });
+                //self.dobMonth.extend({ required: true });
+                //self.dobYear.extend({ required: true });
+
+                //self.house.extend({ required: true, message: 'TELL ME WHERE YOU LIVE' });
+                //self.postcode.extend({ required: true, message: 'TELL ME WHERE YOU LIVE' });
+                //self.timeAtAddressMonths.extend({ required: true, message: 'How long have you lived at this address?' });
+                //self.timeAtAddressYears.extend({ required: true, message: 'How long have you lived at this address?' });
+                //self.annualIncome.extend({ required: true, message: 'This field is required' });
+                //self.bank.extend({ required: true, message: 'This field is required' });
+
+                ko.validatedObservable(self);
             }
         });
 

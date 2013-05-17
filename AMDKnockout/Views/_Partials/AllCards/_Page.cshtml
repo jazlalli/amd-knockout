@@ -1,9 +1,4 @@
-﻿<div class="col-12" data-bind="with: AllCards">
-    
-    <div data-bind="page: {id: 'Form', fx: 'slide'}">
-        @Html.Partial(Url.Content("~/Views/_Partials/_Form.cshtml"))
-    </div>
-
+﻿<div data-bind="with: AllCards">
     <div class="col-3">
         @Html.Partial(Url.Content("~/Views/_Partials/_CategoryMenu.cshtml"))
     </div>

@@ -2,7 +2,11 @@
     Layout = "~/Views/_Shared/_Layout.cshtml";
 }
 
-<div class="content-main" style="visibility: hidden;">
+<div class="form-container" title="Find the credit cards most likely to accept you">
+    @Html.Partial(Url.Content("~/Views/_Partials/_Form.cshtml"))
+</div>
+
+<div class="content-main">
     
     <div data-bind="page: {id: 'start', title: 'ALL CREDIT CARDS'}">
         @Html.Partial(Url.Content("~/Views/_Partials/AllCards/_Page.cshtml"))

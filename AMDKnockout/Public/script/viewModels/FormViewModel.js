@@ -44,8 +44,8 @@
 
                             var propClassKey = prop + 'Class';
 
-                            var computedClassGenerator = function (model, property) {
-                                return function () {
+                            self[propClassKey] = ko.computed(function(model, property) {
+                                return function() {
                                     if (model[property].isValid() === false) {
                                         if (firstLoad === false) {
                                             return 'error';
@@ -60,9 +60,7 @@
                                         }
                                     }
                                 };
-                            };
-
-                            self[propClassKey] = ko.computed(computedClassGenerator(self.user(), prop), self);
+                            }(self.user(), prop), self);
                         }
                     }
                 }

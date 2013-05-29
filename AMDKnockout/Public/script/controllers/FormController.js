@@ -1,11 +1,10 @@
 ﻿define(['jquery',
         'knockout',
         'underscore',
-        'viewModels/UserViewModel',
+        'viewModels/FormViewModel',
         'shared/messageBus',
-        'jqueryui',
-        'knockoutvalidation'],
-    function ($, ko, _, UserViewModel, messageBus) {
+        'jqueryui'],
+    function ($, ko, _, FormViewModel, messageBus) {
 
         var FormController = function () {
             var self = this;
@@ -16,10 +15,10 @@
         _.extend(FormController.prototype, {
             initialize: function () {
                 var self = this;
-
-                self.viewModel = new UserViewModel();
-                self.$formContainer = $(".form-container");
                 
+                self.viewModel = new FormViewModel();
+                
+                self.$formContainer = $(".form-container");
                 self.$formContainer.dialog({
                     autoOpen: false,
                     modal: true,
@@ -32,7 +31,7 @@
                     },
                     hide: {
                         effect: "explode",
-                        duration: 250
+                        duration: 300
                     }
                 });
             },
@@ -45,13 +44,11 @@
             submit: function () {
                 var self = this;
 
-                console.log('submitted form');
-
-                if (self.Form.isValid()) {
+                if (self.Form.user().isValid()) {
                     alert('shimmy shimmy yah shimmy yam shimmy yay');
                     App.Form.$formContainer.dialog('close');
                 } else {
-                    return self.Form.isValid();
+                    alert('form is not valid');
                 }
             }
         });

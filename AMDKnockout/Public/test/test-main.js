@@ -13,6 +13,7 @@ requirejs.config({
     paths: {
         require: "require-jquery",
         jquery: "vendor/jquery",
+        jqueryui: "vendor/jquery-ui-1.10.2.custom.min",
         knockout: "vendor/knockout",
         knockoutvalidation: "vendor/knockout-validation",
         underscore: "vendor/underscore",
@@ -27,6 +28,7 @@ requirejs.config({
         bootstrap: { exports: "bootstrap" },
         pager: { exports: "pager", deps: ["knockout", "underscore", "history"] },
         history: { exports: "history", deps: ["jquery"] },
+        jqueryui: { deps: ["jquery"] },
         knockoutvalidation: { deps: ["knockout"] }
     },
 

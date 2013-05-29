@@ -24,10 +24,10 @@ form {
 		color: #000;
 	}
 
-	input {
-		width: 88px;
-		height: 25px;
-		margin: 3px 5px 15px 3px;
+	input,
+	select {
+		width: 92px;
+		margin: 3px 10px 15px 0;
 		border: 1px solid #999;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
@@ -35,32 +35,27 @@ form {
 		-webkit-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.1);
 		-moz-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.1);
 		box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.1);
+	}
+	
+	input {
+		height: 25px;
 	}
 
 	select {
-		width: 88px;
 		height: 24px;
-		margin: 5px 0 5px 3px;
-		border: 1px solid #999;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
-		-webkit-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.1);
-		-moz-box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.1);
-		box-shadow: inset 1px 1px 3px 1px rgba(0,0,0,0.1);
 	}
 }
+.input-max {
+	width: 278px;
+}
 .input-xlarge {
-	width: 254px;
+	width: 140px;
 }
 .input-large {
-	width: 127px;
-}
-.input-medium {
-	width: 83px;
+	width: 128px;
 }
 .input-small {
-	width: 81px;
+	width: 69px;
 }
 .input-mini {
 	width: 65px;
@@ -103,6 +98,9 @@ ul.form-list {
 		}	
 	}
 }
+.form-divider {
+	border-right: 2px dotted #ccc;
+}
 .form-footer {
 	margin-top: 15px;
 	line-height: 14px;
@@ -134,5 +132,57 @@ ul.form-list {
 			background-image: -ms-linear-gradient(top, #0f7bb5, #029ad8);
 			background-image: -o-linear-gradient(top, #0f7bb5, #029ad8);
 		}
+	}
+}
+.default {
+	
+}
+.valid {
+	background-color: Yellow;
+	border: 3px solid Green;
+
+	&:before { 
+		content: 'hello';
+		display: block;
+		width: 30px;
+		height: 30px;
+		background-image: url('/Public/images/green_tick.png');
+	}
+}
+.error {
+	border: solid 1px #a71c1c;
+	background-color: #ffc0cb;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffc0cb), to(#FFABAB));
+	background-image: -webkit-linear-gradient(top, #ffc0cb, #FFABAB);
+	background-image: -moz-linear-gradient(top, #ffc0cb, #FFABAB);
+	background-image: -ms-linear-gradient(top, #ffc0cb, #FFABAB);
+	background-image: -o-linear-gradient(top, #ffc0cb, #FFABAB);
+}
+.error-message {
+	color: #fff;
+}
+span.error-message {
+	display: none;
+	font-size: 11px;
+	text-align: center;
+	width: 90px;
+	padding: 5px;
+	position: absolute;
+	background-color: #a71c1c;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	
+	-webkit-box-shadow:  1px 1px 5px 1px #555;    
+    box-shadow:  1px 1px 5px 1px #555;
+}
+.error {
+	&:focus + .error-message {
+		display: block;
+	}
+}
+.error {
+	&:focus + .error-message {
+		display: block;
 	}
 }

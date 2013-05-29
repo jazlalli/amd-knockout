@@ -28,7 +28,7 @@
         };
 
         _.extend(TableViewModel.prototype, BaseViewModel.prototype, {
-            initialize: function () {   
+            initialize: function () {
             }
         });
 

@@ -53,14 +53,15 @@
                 self.PoorCredit = new PoorCreditController();
                 self.Form = new FormController();
                 
-                // traversing the App object to find all the viewmodels and pull them up to top level
+                // TODO write a function that recurses to do this automatically JL 29-05-2013
+                // traversing the App object to find all the viewmodels properties and pull 
+                // them up to create a structured viewmodel of viewmodels
                 for (p1 in self) {
                     if (self.hasOwnProperty(p1)) {
                         if (p1 === 'viewModel') {
                             rootViewModel[p1] = self[p1];
                         } else {
                             rootViewModel[p1] = {};
-
                             for (p2 in self[p1]) {
                                 if (self[p1].hasOwnProperty(p2)) {
                                     if (p2 === 'viewModel') {
@@ -85,7 +86,6 @@
                 pager.extendWithPage(rootViewModel);
                 ko.applyBindings(rootViewModel);
                 pager.startHistoryJs(path);
-
                 self.ready.call(self);
             },
             

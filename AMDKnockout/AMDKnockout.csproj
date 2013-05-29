@@ -161,6 +161,7 @@
     <Content Include="Public\script\controllers\AllCardsController.js" />
     <Content Include="Public\script\data\categoriesRepository.js" />
     <Content Include="Public\script\data\savingsRepository.js" />
+    <Content Include="Public\script\models\User.js" />
     <Content Include="Public\script\shared\extensions.js" />
     <Content Include="Public\script\main.js" />
     <Content Include="Public\script\models\ProductCategory.js" />
@@ -170,6 +171,7 @@
     <Content Include="Public\script\vendor\amplify.js" />
     <Content Include="Public\script\vendor\bootstrap.js" />
     <Content Include="Public\script\vendor\jquery.history.js" />
+    <Content Include="Public\script\vendor\knockout-validation.js" />
     <Content Include="Public\script\vendor\pager.js" />
     <Content Include="Public\script\vendor\postal.js" />
     <Content Include="Public\script\data\cardsRepository.js" />
@@ -182,7 +184,7 @@
     <Content Include="Public\script\vendor\jquery.js" />
     <Content Include="Public\script\vendor\underscore.js" />
     <Content Include="Public\script\viewModels\TableViewModel.js" />
-    <Content Include="Public\script\viewModels\UserViewModel.js" />
+    <Content Include="Public\script\viewModels\FormViewModel.js" />
     <Content Include="Public\stylesheets\ie.css" />
     <Content Include="Public\stylesheets\print.css" />
     <Content Include="Public\stylesheets\screen.css" />
@@ -322,7 +324,12 @@
     <Content Include="Public\components\mi-forms\component.json" />
     <Content Include="Public\components\mi-forms\_forms.scss" />
     <Content Include="Public\components\mi-foundation\component.json" />
-    <Content Include="Public\components\mi-foundation\foundation.scss" />
+    <Content Include="Public\components\mi-foundation\foundation.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
     <Content Include="Public\components\mi-foundation\partials\_base.scss" />
     <Content Include="Public\components\mi-foundation\partials\_palette.scss" />
     <Content Include="Public\components\mi-foundation\partials\_variables.scss" />
@@ -338,9 +345,24 @@
     <Content Include="Public\components\mi-typography\README" />
     <Content Include="Public\components\mi-typography\_type.scss" />
     <Content Include="Public\config.rb" />
-    <Content Include="Public\sass\ie.scss" />
-    <Content Include="Public\sass\print.scss" />
-    <Content Include="Public\sass\screen.scss" />
+    <Content Include="Public\sass\ie.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Public\sass\print.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Public\sass\screen.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\sass\_partials\_menu.scss" />

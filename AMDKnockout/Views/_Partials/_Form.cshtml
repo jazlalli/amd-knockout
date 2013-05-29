@@ -1,147 +1,162 @@
-﻿<ul class="col-12 form-list">
-    <li><b>70% of card applications are rejected</b> - last year alone, 5 million applications were unsuccessful.</li>
-    <li><b>A rejected application can have a negative impact on your credit score</b> and affect your ability to borrow in the future.</li>
-    <li><b>Protect your credit score</b> by finding out <b>which cards are likely to accept you</b>. It's fast, free, secure and <b>won't affect your credit rating.</b></li>
-</ul>
+﻿<div data-bind="with: Form">
+    <ul class="col-12 form-list">
+        <li><b>70% of card applications are rejected</b> - last year alone, 5 million applications were unsuccessful.</li>
+        <li><b>A rejected application can have a negative impact on your credit score</b> and affect your ability to borrow in the future.</li>
+        <li><b>Protect your credit score</b> by finding out <b>which cards are likely to accept you</b>. It's fast, free, secure and <b>won't affect your credit rating.</b></li>
+    </ul>
 
-<div class="col-12">
-    <h2>Fill out the form and find out your likelihood of acceptance before applying</h2>
-</div>
-
-<form class="col-12" data-bind="with: Form, submit: App.Form.submit">
     <div class="col-12">
-        <div class="col-4">
-            <div class="col-3">
-                <label>Title</label>
-            </div>
-            <div class="col-4">
-                <label>First Name</label>
-            </div>
-            <div class="col-4">
-                <label>Last Name</label>
-            </div>
+        <h2>Fill out the form and find out your likelihood of acceptance before applying</h2>
+    </div>
 
-            <div class="col-3">
-                <select class="input-mini">
-                    <option>Mr</option>
-                    <option>Mrs</option>
-                    <option>Miss</option>
-                    <option>Ms</option>
-                    <option>Dr</option>
-                </select>
-            </div>
-            <div class="col-4">
-                <input type="text" data-bind="value: firstName" data-validation-message="blah blah blah">
-            </div>
-            <div class="col-4">
-                <input type="text" data-bind="value: lastName" data-validation-message="This field is required">
-            </div>
-
-            <div class="col-12">
-                <label>Date of Birth</label>
-            </div>
-
-            <div class="col-12">
-                <div class="col-3">
-                    <input class="input-mini" type="text" placeholder="dd" data-bind="value: dobDate">
+    <form id="hdform" class="col-12" data-bind="with: user, submit: App.Form.submit" novalidate="novalidate">
+        <div class="col-12">
+            <div class="col-4 gutted form-divider">
+                <div class="col-3 gutted">
+                    <label>Title</label>
                 </div>
+                <div class="col-4 gutted">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="col-4 gutted">
+                    <label for="lastName">Last Name</label>
+                </div>
+
+                <div class="col-3 gutted">
+                    <select name="title" data-bind="value: title, css: $parent.titleClass" data-val-required="true" class="input-mini">
+                        <option selected="selected" value="">------</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Dr">Dr</option>
+                        <option value="Rev">Rev</option>
+                    </select>
+                </div>
+                <div class="col-4 gutted">
+                    <input name="firstName" data-bind="value: firstName, css: $parent.firstNameClass" data-val-required="true" data-val-required-msg="This field is required" data-val-length-msg="Your name must be between 2 and 30 characters" data-val-length-max="30" data-val-length-min="2" data-val-regex="First name may only consist of A-Z, apostrophe, hyphen and space." data-val-regex-pattern="^[a-zA-Z][a-zA-Z'\- \xA0]{1,29}$" type="text">
+                </div>
+                <div class="col-4 gutted">
+                    <input name="lastName" data-bind="value: lastName, css: $parent.lastNameClass" data-val-required="true" data-val-length-max="30" data-val-length-min="2" data-val-regex="Last name may only consist of A-Z, apostrophe, hyphen and space." data-val-regex-pattern="^[a-zA-Z][a-zA-Z'\- \xA0]{1,29}$" type="text">
+                </div>
+
+                <div class="col-12 gutted">
+                    <label>Date of Birth</label>
+                </div>
+                    
+                <div class="col-12 gutted">
+                    <div class="col-3 gutted">
+                        <input name="dobDate" class="input-mini" type="text" placeholder="dd" data-bind="value: dobDate, css: $parent.dobDateClass" data-val-required="true" data-val-regex="Please enter your date of birth (dd)" data-val-regex-pattern="^[0-9]{1,2}$">
+                    </div>
+                    <div class="col-4 gutted">
+                        <input name="dobMonth" type="text" placeholder="mm" data-bind="value: dobMonth, css: $parent.dobMonthClass" data-val-required="true" data-val-regex="Please enter your month of birth (mm)" data-val-regex-pattern="^[0-9]{1,2}$">
+                    </div>
+                    <div class="col-4 gutted">
+                        <input name="dobYear" type="text" placeholder="yyyy" data-bind="value: dobYear, css: $parent.dobYearClass" data-val-required="true" data-val-regex="Please enter your year of birth (yyyy)" data-val-regex-pattern="^[0-9]{4}$">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4 gutted form-divider">
+                <div class="col-6 gutted">
+                    <label>Residential Status</label>
+                </div>
+                <div class="col-6 gutted">
+                    <label>House name/no</label>
+                </div>
+                <div class="col-6 gutted">
+                    <select name="residentialStatus" data-bind="value: residentialStatus, css: $parent.residentialStatusClass" class="input-xlarge" data-val-required="true">
+                        <option selected="selected" value="">------</option>
+                        <option value="Homeowner">Homeowner</option>
+                        <option value="PrivateTenant">Private Tenant</option>
+                        <option value="CouncilTenant">Council Tenant</option>
+                        <option value="LivingWithParents">Living With Parents</option>
+                    </select>
+                </div>
+                <div class="col-6 gutted">
+                    <input name="house" class="input-large" data-bind="value: house, css: $parent.houseClass" data-val-required="true" type="text">
+                </div>
+
+                <div class="col-5 gutted">
+                    <label>Postcode</label>
+                </div>
+                <div class="col-7 gutted">
+                    <label>Time at current address</label>
+                </div>
+                <div class="col-5 gutted">
+                    <input name="postcode" data-bind="value: postcode, css: $parent.postcodeClass" data-val-required="true" data-val-regex="This postcode has not been recognised. Please check that it is accurate" data-val-regex-pattern="^([A-Z]{1,2}\d[A-Z\d]?[\s]?\d[ABD-HJLNP-UW-Z]{2})$" type="text" value="" />
+                </div>
+                <div class="col-7 gutted">
+                    <input name="timeAtAddressYears" class="input-small" type="text" placeholder="Years" data-bind="value: timeAtAddressYears, css: $parent.timeAtAddressYearsClass" data-val-required="true" data-val-number="The number of years you have lived at this address must be a number." data-val-regex="Please select years at this address" data-val-regex-pattern="^[0-9]{1,2}$">
+                    <input name="timeAtAddressMonths" class="input-small" type="text" placeholder="Months" data-bind="value: timeAtAddressMonths, css: $parent.timeAtAddressMonthsClass" data-val-required="true" data-val-number="The months you have lived at this address must be a number." data-val-regex="Please select months at this address" data-val-regex-pattern="^[0-9]{1,2}$">
+                </div>
+            </div>
+
+            <div class="col-4 gutted">
+                <div class="col-6 gutted">
+                    <label>Employment status</label>
+                </div>
+                <div class="col-6 gutted">
+                    <label>Annual Income</label>
+                </div>
+
+                <div class="col-6 gutted">
+                    <select name="employmentStatus" data-bind="value: employmentStatus, css: $parent.employmentStatusClass" class="input-xlarge" data-val-required="true">
+                        <option selected="selected" value="">------</option>
+                        <option value="FullTime">Full Time</option>
+                        <option value="PartTime">Part Time</option>
+                        <option value="SelfEmployed">Self Employed</option>
+                        <option value="Homemaker">Homemaker</option>
+                        <option value="Unemployed">Unemployed</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Student">Student</option>
+                    </select>
+                </div>
+                <div class="col-6 gutted">
+                    <input name="annualIncome" class="input-large" placeholder="e.g. 15000" data-bind="value: annualIncome, css: $parent.annualIncomeClass" data-val-required="true" data-val-regex="Please enter your annual income using numbers only." data-val-regex-pattern="^[0-9]{1,10}$" type="text">
+                </div>
+
+                <div class="col-12 gutted">
+                    <label>Bank / Building Society</label>
+                </div>
+                <div class="col-12 gutted">
+                    <select name="bank" data-bind="value: bank, css: $parent.bankClass" class="input-max" data-val-required="true">
+                        <option selected="selected" value="">-----</option>
+                        <option value="1001">Alliance &amp; Leicester</option>
+                        <option value="1002">Bank of Scotland</option>
+                        <option value="1003">Barclays Bank</option>
+                        <option value="1004">Bradford &amp; Bingley</option>
+                        <option value="1005">Co-operative Bank</option>
+                        <option value="1006">First Direct</option>
+                        <option value="1007">Halifax</option>
+                        <option value="1008">Lloyds TSB</option>
+                        <option value="1009">HSBC Bank</option>
+                        <option value="1010">Natwest</option>
+                        <option value="1011">Nationwide</option>
+                        <option value="1012">Royal Bank of Scotland</option>
+                        <option value="1013">Santander</option>
+                        <option value="1014">Standard Chartered</option>
+                        <option value="1015">Tesco</option>
+                        <option value="9999">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 gutted form-footer">
                 <div class="col-4">
-                    <input type="text" placeholder="mm" data-bind="value: dobMonth">
-                </div>
-                <div class="col-4">
-                    <input type="text" placeholder="yyyy" data-bind="value: dobYear">
-                </div>
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="col-6">
-                <label>Residential Status</label>
-            </div>
-            <div class="col-6">
-                <label>House name/no</label>
-            </div>
-            <div class="col-6">
-                <select class="input-large">
-                    <option>Homeowner</option>
-                    <option>Private Tenant</option>
-                    <option>Council Tenant</option>
-                    <option>Living with Parents</option>
-                </select>
-            </div>
-            <div class="col-6">
-                <input class="input-large" type="text" data-bind="value: house">
-            </div>
-
-            <div class="col-5">
-                <label>Postcode</label>
-            </div>
-            <div class="col-7">
-                <label>Time at current address</label>
-            </div>
-            <div class="col-5">
-                <input class="" type="text" data-bind="value: postcode" />
-            </div>
-            <div class="col-7">
-                <input class="input-mini" type="text" placeholder="Years" data-bind="value: timeAtAddressYears">
-                <input class="input-mini" type="text" placeholder="Months" data-bind="value: timeAtAddressMonths">
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="col-6">
-                <label>Employment status</label>
-            </div>
-            <div class="col-6">
-                <label>Annual Income</label>
-            </div>
-
-            <div class="col-6">
-                <select class="input-large">
-                    <option>Full time</option>
-                    <option>Self employed</option>
-                    <option>Part time</option>
-                    <option>Homemaker</option>
-                    <option>Retired</option>
-                    <option>Student</option>
-                    <option>Unemployed</option>
-                </select>
-            </div>
-            <div class="col-6">
-                <input type="text" placeholder="e.g. 15000" data-bind="value: annualIncome">
-            </div>
-
-            <div class="col-12">
-                <label>Bank / Building Society</label>
-            </div>
-            <div class="col-12">
-                <select class="input-xlarge">
-                    <option>HSBC</option>
-                    <option>Barclays</option>
-                    <option>Santander</option>
-                    <option>First Direct</option>
-                    <option>Natwest</option>
-                    <option>Nationwide</option>
-                    <option>Alliance & Leicester</option>
-                    <option>Sharky the Shark</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="col-12 form-footer">
-            <div class="col-4">
-                <p class="legal">
-                    By clicking 'Get your results' you are agreeing with our 
+                    <p class="legal">
+                        By clicking 'Get your results' you are agreeing with our 
                     <a href="http://www.totallymoney.com/info/creditcards-terms-and-conditions/" target="_blank">Terms and Conditions
                     </a>
-                    and 
+                        and 
                     <a href="http://www.totallymoney.com/info/privacy-policy/" target="_blank">Privacy Policy
                     </a>
-                </p>
-            </div>
-            <div class="col-8">
-                <button class="btn btn-warning bordered large pull-right applynow" type="submit">Get Your Results</button>
+                    </p>
+                </div>
+                <div class="col-8">
+                    <button class="btn btn-warning bordered large pull-right applynow" type="submit">Get Your Results</button>
+                </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

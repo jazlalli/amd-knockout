@@ -7,7 +7,7 @@
         'use strict';
 
         var FormViewModel = function () {
-            this.user = null;
+            this.User = null;
 
             BaseViewModel.apply(this, arguments);
         };
@@ -15,6 +15,9 @@
         _.extend(FormViewModel.prototype, BaseViewModel.prototype, {
             initialize: function() {
                 var self = this;
+
+                // scrape the form DOM element to get all inputs and extract
+                // the validation parameters into the validationRulse object
                 var i,
                     validationRules = {},
                     hdform = document.getElementById("hdform"),
@@ -29,42 +32,61 @@
                     validationRules[$(selects[i])[0].name] = $(selects[i]).data();
                 }
 
-                self.user(new User());
-                self.user().initializeValidation(validationRules);
-                self.initializeValidation.call(self);
+                // instantiate the model and send in the validation params
+                self.User(new User());
+                self.User().initializeValidation(validationRules);
+
+                // setup the dynamic validation css classes
+                self.initializeValidationCss.call(self);
             },
             
-            initializeValidation: function () {
-                var self = this,
-                    firstLoad = true;
+            initializeValidationCss: function () {
+                var self = this;
 
-                for (var prop in self.user()) {
-                    if (self.user().hasOwnProperty(prop)) {
+                // need to bypass validation on first page load
+                var firstLoad = true;
+
+                for (var prop in self.User()) {
+                    if (self.User().hasOwnProperty(prop)) {
+
+                        // excluding properties that ko.validation adds to the model
                         if (prop !== 'errors' && prop !== 'isValid' && prop !== 'isAnyMessageShown') {
 
                             var propClassKey = prop + 'Class';
 
-                            self[propClassKey] = ko.computed(function(model, property) {
-                                return function() {
-                                    if (model[property].isValid() === false) {
-                                        if (firstLoad === false) {
-                                            return 'error';
-                                        } else {
-                                            return 'default';
-                                        }
-                                    } else {
+                            // uses a generator function to produce the function that is passed to computed
+                            self[propClassKey] = ko.computed(function(modelProperty) {
+                                return function () {
+
+                                    // HACKY HACK HACK
+                                    // this computed doesn't get executed until the viewmodel property it
+                                    // depends on is accessed, so i'm accessing it here to force it to run
+                                    modelProperty();
+
+                                    if (modelProperty.isValid() === true) {
+
                                         if (firstLoad === false) {
                                             return 'valid';
                                         } else {
                                             return 'default';
                                         }
+                                        
+                                    } else {
+
+                                        if (firstLoad === false) {
+                                            return 'error';
+                                        } else {
+                                            return 'default';
+                                        }
+                                        
                                     }
                                 };
-                            }(self.user(), prop), self);
+                            }(self.User()[prop]), self);
                         }
                     }
                 }
                 
+                // switching validation on
                 firstLoad = false;
             }
         });

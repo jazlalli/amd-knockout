@@ -9,7 +9,7 @@
         <h2>Fill out the form and find out your likelihood of acceptance before applying</h2>
     </div>
 
-    <form id="hdform" class="col-12" data-bind="with: user, submit: App.Form.submit" novalidate="novalidate">
+    <form id="hdform" class="col-12" data-bind="with: User, submit: App.Form.submit" novalidate="novalidate">
         <div class="col-12">
             <div class="col-4 gutted form-divider">
                 <div class="col-3 gutted">
@@ -34,10 +34,10 @@
                     </select>
                 </div>
                 <div class="col-4 gutted">
-                    <input name="firstName" data-bind="value: firstName, css: $parent.firstNameClass" data-val-required="true" data-val-required-msg="This field is required" data-val-length-msg="Your name must be between 2 and 30 characters" data-val-length-max="30" data-val-length-min="2" data-val-regex="First name may only consist of A-Z, apostrophe, hyphen and space." data-val-regex-pattern="^[a-zA-Z][a-zA-Z'\- \xA0]{1,29}$" type="text">
+                    <input name="firstName" data-bind="value: firstName, css: $parent.firstNameClass" data-val-required="true" data-val-required-msg="This field is required" data-val-length-msg="Your name must be between 2 and 30 characters" data-val-length-max="30" data-val-length-min="1" data-val-regex-msg="First name may only consist of A-Z, apostrophe, hyphen and space." data-val-regex-pattern="^[a-zA-Z][a-zA-Z'\- \xA0]{1,29}$" type="text">
                 </div>
                 <div class="col-4 gutted">
-                    <input name="lastName" data-bind="value: lastName, css: $parent.lastNameClass" data-val-required="true" data-val-length-max="30" data-val-length-min="2" data-val-regex="Last name may only consist of A-Z, apostrophe, hyphen and space." data-val-regex-pattern="^[a-zA-Z][a-zA-Z'\- \xA0]{1,29}$" type="text">
+                    <input name="lastName" data-bind="value: lastName, css: $parent.lastNameClass" data-val-required="true" data-val-length-max="30" data-val-length-min="1" data-val-regex="Last name may only consist of A-Z, apostrophe, hyphen and space." data-val-regex-pattern="^[a-zA-Z][a-zA-Z'\- \xA0]{1,29}$" type="text">
                 </div>
 
                 <div class="col-12 gutted">

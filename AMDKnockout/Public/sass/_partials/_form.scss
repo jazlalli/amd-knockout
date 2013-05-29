@@ -151,12 +151,12 @@ ul.form-list {
 }
 .error {
 	border: solid 1px #a71c1c;
-	background-color: #ffc0cb;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffc0cb), to(#FFABAB));
-	background-image: -webkit-linear-gradient(top, #ffc0cb, #FFABAB);
-	background-image: -moz-linear-gradient(top, #ffc0cb, #FFABAB);
-	background-image: -ms-linear-gradient(top, #ffc0cb, #FFABAB);
-	background-image: -o-linear-gradient(top, #ffc0cb, #FFABAB);
+	background-color: #ffabab;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffc0cb), to(#ffabab));
+	background-image: -webkit-linear-gradient(top, #ffc0cb, #ffabab);
+	background-image: -moz-linear-gradient(top, #ffc0cb, #ffabab);
+	background-image: -ms-linear-gradient(top, #ffc0cb, #ffabab);
+	background-image: -o-linear-gradient(top, #ffc0cb, #ffabab);
 }
 .error-message {
 	color: #fff;

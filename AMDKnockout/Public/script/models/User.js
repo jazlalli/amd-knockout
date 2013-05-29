@@ -5,18 +5,18 @@ define(["knockout",
     function(ko, _, BaseViewModel) {
         var User = function() {
             this.title = '';
-            this.firstName = null;
+            this.firstName = '';
             this.lastName = '';
-            this.dobDate = null;
-            this.dobMonth = null;
-            this.dobYear = null;
+            this.dobDate = '';
+            this.dobMonth = '';
+            this.dobYear = '';
 
             this.house = '';
             this.postcode = '';
-            this.timeAtAddressYears = null;
-            this.timeAtAddressMonths = null;
+            this.timeAtAddressYears = '';
+            this.timeAtAddressMonths = '';
 
-            this.annualIncome = null;
+            this.annualIncome = '';
             this.bank = '';
             this.residentialStatus = '';
             this.employmentStatus = '';
@@ -36,16 +36,16 @@ define(["knockout",
                     valObj;
 
                 ko.validation.configure({
-                    insertMessages: true,
-                    decorateElement: true,
-                    errorMessageClass: 'error-message',
-                    messagesOnModified: true,
+                    insertMessages: false,
+                    messagesOnModified: false,
                     parseInputAttributes: true,
                     registerExtenders: true,
                 });
 
                 ko.validation.init();
 
+
+                // maps validation parameters sent down from server to ko.validation
                 for (valAttr in validationData) {
                     valObj = {};
 

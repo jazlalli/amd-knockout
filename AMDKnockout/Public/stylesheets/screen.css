@@ -3408,16 +3408,17 @@ form {
 }
 /* line 19, ../sass/_partials/_form.scss */
 form label {
+  width: 96%;
   padding: 5px 0;
   margin: 5px 0;
   font-size: 12px;
   font-weight: bold;
   color: #000;
 }
-/* line 28, ../sass/_partials/_form.scss */
+/* line 29, ../sass/_partials/_form.scss */
 form input,
 form select {
-  width: 92px;
+  width: 96%;
   margin: 3px 10px 15px 0;
   border: 1px solid #999;
   -webkit-border-radius: 4px;
@@ -3427,41 +3428,41 @@ form select {
   -moz-box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
   box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 40, ../sass/_partials/_form.scss */
+/* line 41, ../sass/_partials/_form.scss */
 form input {
   height: 25px;
 }
-/* line 44, ../sass/_partials/_form.scss */
+/* line 45, ../sass/_partials/_form.scss */
 form select {
   height: 24px;
 }
 
-/* line 48, ../sass/_partials/_form.scss */
+/* line 49, ../sass/_partials/_form.scss */
 .input-max {
   width: 278px;
 }
 
-/* line 51, ../sass/_partials/_form.scss */
+/* line 52, ../sass/_partials/_form.scss */
 .input-xlarge {
   width: 140px;
 }
 
-/* line 54, ../sass/_partials/_form.scss */
+/* line 55, ../sass/_partials/_form.scss */
 .input-large {
   width: 128px;
 }
 
-/* line 57, ../sass/_partials/_form.scss */
+/* line 58, ../sass/_partials/_form.scss */
 .input-small {
   width: 69px;
 }
 
-/* line 60, ../sass/_partials/_form.scss */
+/* line 61, ../sass/_partials/_form.scss */
 .input-mini {
   width: 65px;
 }
 
-/* line 63, ../sass/_partials/_form.scss */
+/* line 64, ../sass/_partials/_form.scss */
 .form-list {
   width: 100%;
   padding: 20px;
@@ -3476,7 +3477,7 @@ form select {
   box-sizing: border-box;
 }
 
-/* line 76, ../sass/_partials/_form.scss */
+/* line 77, ../sass/_partials/_form.scss */
 ul.form-list {
   -webkit-margin-before: 1em;
   -webkit-margin-after: 1em;
@@ -3488,7 +3489,7 @@ ul.form-list {
   list-style-type: none;
   line-height: 24px;
 }
-/* line 88, ../sass/_partials/_form.scss */
+/* line 89, ../sass/_partials/_form.scss */
 ul.form-list li:before {
   position: relative;
   top: -2px;
@@ -3501,36 +3502,36 @@ ul.form-list li:before {
   content: '\25A0';
 }
 
-/* line 101, ../sass/_partials/_form.scss */
+/* line 102, ../sass/_partials/_form.scss */
 .form-divider {
   border-right: 2px dotted #ccc;
 }
 
-/* line 104, ../sass/_partials/_form.scss */
+/* line 105, ../sass/_partials/_form.scss */
 .form-footer {
   margin-top: 15px;
   line-height: 14px;
 }
-/* line 108, ../sass/_partials/_form.scss */
+/* line 109, ../sass/_partials/_form.scss */
 .form-footer .legal {
   padding: 15px 0 0 0;
   margin: 0;
   font-size: 11px;
 }
-/* line 113, ../sass/_partials/_form.scss */
+/* line 114, ../sass/_partials/_form.scss */
 .form-footer .legal a {
   color: #0f7bb5;
 }
-/* line 116, ../sass/_partials/_form.scss */
+/* line 117, ../sass/_partials/_form.scss */
 .form-footer .legal a:hover {
   text-decoration: underline;
 }
-/* line 122, ../sass/_partials/_form.scss */
+/* line 123, ../sass/_partials/_form.scss */
 .form-footer button.btn, .form-footer button.btn-warning {
   margin-top: 10px;
   color: #fff;
 }
-/* line 126, ../sass/_partials/_form.scss */
+/* line 127, ../sass/_partials/_form.scss */
 .form-footer button.btn:hover, .form-footer button.btn-warning:hover {
   cursor: pointer;
   background-color: #29ade3;
@@ -3541,37 +3542,47 @@ ul.form-list li:before {
   background-image: -o-linear-gradient(top, #0f7bb5, #029ad8);
 }
 
-/* line 140, ../sass/_partials/_form.scss */
-.valid {
-  background-color: Yellow;
-  border: 3px solid Green;
-}
-/* line 144, ../sass/_partials/_form.scss */
-.valid:before {
-  content: 'hello';
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-image: url("/Public/images/green_tick.png");
+/* line 139, ../sass/_partials/_form.scss */
+.error + .label-icon:before, .valid + .label-icon:before {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: ' ';
+  display: inline;
+  margin-left: 5px;
 }
 
-/* line 152, ../sass/_partials/_form.scss */
+/* line 147, ../sass/_partials/_form.scss */
+.error + .label-icon:before {
+  background-image: url("/Public/images/green_tick.png");
+  background-size: 20px 20px;
+  background-position: 3px 3px;
+  background-repeat: no-repeat;
+}
+
+/* line 154, ../sass/_partials/_form.scss */
+.valid + .label-icon:before {
+  background-image: url("/Public/images/green_tick.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+}
+
+/* line 160, ../sass/_partials/_form.scss */
+.valid {
+  border: solid 1px Green;
+}
+
+/* line 168, ../sass/_partials/_form.scss */
 .error {
   border: solid 1px #a71c1c;
-  background-color: #ffc0cb;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(pink), to(#ffabab));
-  background-image: -webkit-linear-gradient(top, pink, #ffabab);
-  background-image: -moz-linear-gradient(top, pink, #ffabab);
-  background-image: -ms-linear-gradient(top, pink, #ffabab);
-  background-image: -o-linear-gradient(top, pink, #ffabab);
 }
 
-/* line 161, ../sass/_partials/_form.scss */
+/* line 177, ../sass/_partials/_form.scss */
 .error-message {
   color: #fff;
 }
 
-/* line 164, ../sass/_partials/_form.scss */
+/* line 180, ../sass/_partials/_form.scss */
 span.error-message {
   display: none;
   font-size: 11px;
@@ -3587,12 +3598,7 @@ span.error-message {
   box-shadow: 1px 1px 5px 1px #555;
 }
 
-/* line 180, ../sass/_partials/_form.scss */
-.error:focus + .error-message {
-  display: block;
-}
-
-/* line 185, ../sass/_partials/_form.scss */
+/* line 195, ../sass/_partials/_form.scss */
 .error:focus + .error-message {
   display: block;
 }

@@ -36,7 +36,8 @@ define(["knockout",
                     valObj;
 
                 ko.validation.configure({
-                    insertMessages: false,
+                    insertMessages: true,
+                    errorMessageClass: 'error-message',
                     messagesOnModified: false,
                     parseInputAttributes: true,
                     registerExtenders: true,

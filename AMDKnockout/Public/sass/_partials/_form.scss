@@ -17,6 +17,7 @@ form {
 	
 
 	label {
+		width: 96%;
 		padding: 5px 0;
 		margin: 5px 0;
 		font-size: 12px;
@@ -26,7 +27,7 @@ form {
 
 	input,
 	select {
-		width: 92px;
+		width: 96%;
 		margin: 3px 10px 15px 0;
 		border: 1px solid #999;
 		-webkit-border-radius: 4px;
@@ -134,29 +135,44 @@ ul.form-list {
 		}
 	}
 }
-.default {
-	
+
+%label-icon {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	content: ' ';
+	display: inline;
+	margin-left: 5px;
+}
+%error-icon {
+	@extend %label-icon;	
+	background-image: url('/Public/images/green_tick.png');
+	background-size: 20px 20px;
+	background-position: 3px 3px;
+	background-repeat: no-repeat;
+}
+%valid-icon {	
+	@extend %label-icon;
+	background-image: url('/Public/images/green_tick.png');
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
 }
 .valid {
-	background-color: Yellow;
-	border: 3px solid Green;
-
-	&:before { 
-		content: 'hello';
-		display: block;
-		width: 30px;
-		height: 30px;
-		background-image: url('/Public/images/green_tick.png');
+	border: solid 1px Green;
+	& + .label-icon {
+		&:before {
+			@extend %valid-icon;
+		}
 	}
 }
 .error {
 	border: solid 1px #a71c1c;
-	background-color: #ffabab;
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ffc0cb), to(#ffabab));
-	background-image: -webkit-linear-gradient(top, #ffc0cb, #ffabab);
-	background-image: -moz-linear-gradient(top, #ffc0cb, #ffabab);
-	background-image: -ms-linear-gradient(top, #ffc0cb, #ffabab);
-	background-image: -o-linear-gradient(top, #ffc0cb, #ffabab);
+	
+	& + .label-icon {
+		&:before {
+			@extend %error-icon;
+		}
+	}
 }
 .error-message {
 	color: #fff;
@@ -171,15 +187,9 @@ span.error-message {
 	background-color: #a71c1c;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
-	border-radius: 3px;
-	
-	-webkit-box-shadow:  1px 1px 5px 1px #555;    
-    box-shadow:  1px 1px 5px 1px #555;
-}
-.error {
-	&:focus + .error-message {
-		display: block;
-	}
+	border-radius: 3px;	
+	-webkit-box-shadow: 1px 1px 5px 1px #555;    
+    box-shadow: 1px 1px 5px 1px #555;
 }
 .error {
 	&:focus + .error-message {
